@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "DHCF Slider WebParts",
+    "id": "425c9654-a3f8-427e-827f-033979566b6b",
+    "version": "1.1.5.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/dhcf-slider-wb.sppkg"
+  }
+}

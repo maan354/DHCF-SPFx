@@ -1,0 +1,93 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "slider-gallery-bundle": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/sliderGallery/SliderGalleryWebPart.js",
+          "manifest": "./src/webparts/sliderGallery/SliderGalleryWebPart.manifest.json"
+        }
+      ]
+    },
+    "simple-carousel-bundle": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/simpleCarousel/SimpleCarouselWebPart.js",
+          "manifest": "./src/webparts/simpleCarousel/SimpleCarouselWebPart.manifest.json"
+        }
+      ]
+    },
+    "newscarousel-bundle": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/newsCarousel/NewsCarouselWebPart.js",
+          "manifest": "./src/webparts/newsCarousel/NewsCarouselWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "localizedResources": {
+    "sp-client-custom-fields/strings": "node_modules/sp-client-custom-fields/lib/loc/{locale}.js",
+    "sliderGalleryStrings": "lib/webparts/sliderGallery/loc/{locale}.js",
+    "simpleCarouselStrings": "lib/webparts/simpleCarousel/loc/{locale}.js",
+    "NewsCarouselStrings": "lib/webparts/newsCarousel/loc/{locale}.js"
+  },
+  "externals": {
+    "sp-client-custom-fields": "node_modules/sp-client-custom-fields/dist/sp-client-custom-fields.bundle.js",
+    "jquery": {
+      "path": "node_modules/jquery/dist/jquery.min.js",
+      "globalName": "jQuery"
+    },
+    "jqueryreflection": {
+      "path": "src/javascripts/reflection/jquery.reflection.js",
+      "globalName": "jQuery",
+      "globalDependencies": [
+        "jquery"
+      ]
+    },
+    "simplemde": {
+      "path": "src/javascripts/simplemde/simplemde.min.js",
+      "globalName": "SimpleMDE"
+    },
+    "unitegallery": {
+      "path": "src/javascripts/unitegallery/unitegallery.min.js",
+      "globalName": "jQuery",
+      "globalDependencies": [
+        "jquery"
+      ]
+    },
+    "ug-theme-grid": {
+      "path": "src/javascripts/unitegallery/ug-theme-grid.js",
+      "globalName": "jQuery",
+      "globalDependencies": [
+        "jquery",
+        "unitegallery"
+      ]
+    },
+    "ug-theme-slider": {
+      "path": "src/javascripts/unitegallery/ug-theme-slider.js",
+      "globalName": "jQuery",
+      "globalDependencies": [
+        "jquery",
+        "unitegallery"
+      ]
+    },
+    "ug-theme-tiles": {
+      "path": "src/javascripts/unitegallery/ug-theme-tiles.js",
+      "globalName": "jQuery",
+      "globalDependencies": [
+        "jquery",
+        "unitegallery"
+      ]
+    },
+    "ug-theme-carousel": {
+      "path": "src/javascripts/unitegallery/ug-theme-carousel.js",
+      "globalName": "jQuery",
+      "globalDependencies": [
+        "jquery",
+        "unitegallery"
+      ]
+    }
+  }
+}

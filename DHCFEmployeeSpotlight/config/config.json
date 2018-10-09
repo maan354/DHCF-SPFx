@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "dhcf-spotlight-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/dhcfSpotlight/DhcfSpotlightWebPart.js",
+          "manifest": "./src/webparts/dhcfSpotlight/DhcfSpotlightWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "DhcfSpotlightWebPartStrings": "lib/webparts/dhcfSpotlight/loc/{locale}.js"
+  }
+}

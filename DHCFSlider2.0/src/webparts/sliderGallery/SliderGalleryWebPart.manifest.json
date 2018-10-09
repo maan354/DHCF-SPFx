@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "3f3e8f3d-033d-34b6-8450-17312bb0b275",
+  "alias": "SliderGallery",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "a509fe47-209d-48b7-b27a-6f3841c4033a",
+    "group": { "default": "Images Galleries and Tools" },
+    "title": { "default": "Slider Gallery" },
+    "description": { "default": "This Web Part allows you to view your photo galleries in the form of a slider between the images. Photos automatically scroll with the effect of your choice. The user can click on the arrows or use the touch features to navigate through the images. On click, the image is opened in full screen." },
+    "officeFabricIconFontName": "Play",
+    "properties": {
+      "enableArrows": true,
+      "enableBullets": true,
+      "enablePlayButton": false,
+      "enableFullscreenButton": false,
+      "enableZoomPanel": false,
+      "controlsAlwaysOn": false,
+      "preserveRatio": true,
+      "pauseOnMouseover": true,
+      "carousel": true,
+      "autoplay": true,
+      "speed": 4000,
+      "transition": "slide",
+      "enableProgressIndicator": true,
+      "textPanelEnable": true,
+      "textPanelAlwaysOnTop": true,
+      "textPanelOpacity": 0.4
+    }
+  }]
+}

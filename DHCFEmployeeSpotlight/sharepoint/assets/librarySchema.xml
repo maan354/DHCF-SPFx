@@ -1,0 +1,53 @@
+<List xmlns:ows="Microsoft SharePoint" Title="Library Schema" EnableContentTypes="TRUE" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="SpotlightList" BaseType="1" xmlns="http://schemas.microsoft.com/sharepoint/">
+ <MetaData>
+   <ContentTypes>
+     <ContentType ID="0x010042D0C1C200A14B6887742B6344666AAA" 
+                Name="SPFxEmployee" 
+                Group="SPFx Content Types" 
+                Description="Spotlight content type"
+                Inherits="FALSE"
+                Version="0"
+                Hidden="FALSE"
+                Sealed="FALSE">
+        <FieldRefs>
+            <!--Title Site Column -->
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Required="FALSE" ShowInNewForm="TRUE" ShowInEditForm="TRUE" />
+            <FieldRef ID="{943E7530-5E2B-4C02-8259-DE0BAAA60002}" />
+            <FieldRef ID="{943E7530-5E2B-4C02-8259-DE0BCAC66603}" />
+            <FieldRef ID="{943E7530-5E2B-4C02-8259-DE0BCAC55503}" />
+            <FieldRef ID="{943E7530-5E2B-4C02-8259-DE0BCAC44403}" />
+        </FieldRefs>
+          <DocumentTemplate TargetName="/_layouts/15/upload.aspx"/>
+      </ContentType>
+
+   </ContentTypes>
+   <Fields></Fields>
+   <Views>
+     <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+       <XslLink Default="TRUE">main.xsl</XslLink>
+       <JSLink>clienttemplates.js</JSLink>
+       <RowLimit Paged="TRUE">30</RowLimit>
+       <Toolbar Type="Standard" />
+       <ViewFields>
+         <FieldRef Name="DocIcon" />
+         <FieldRef Name="LinkFilename"></FieldRef>
+         <FieldRef Name="Title"></FieldRef>
+         <FieldRef Name="Employee"></FieldRef>
+         <FieldRef Name="Description0"></FieldRef>
+         <FieldRef Name="order0"></FieldRef>
+         <FieldRef Name="until0"></FieldRef>
+       </ViewFields>
+       <Query>
+         <OrderBy>
+           <FieldRef Name="order0" />
+         </OrderBy>
+       </Query>
+     </View>
+   </Views>
+   <Forms>
+     <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+     <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+     <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+   </Forms>
+ </MetaData>
+</List>

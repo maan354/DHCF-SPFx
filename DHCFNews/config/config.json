@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "dhcf-news-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/dhcfNews/DhcfNewsWebPart.js",
+          "manifest": "./src/webparts/dhcfNews/DhcfNewsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "DhcfNewsWebPartStrings": "lib/webparts/dhcfNews/loc/{locale}.js"
+  }
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+   <Field ID="{943E7530-5E2B-4C02-8259-DE0BAAA60002}"
+           Name="order0"
+           DisplayName="Order"
+           Type="Choice"
+           Required="TRUE">
+       <CHOICES>
+       <CHOICE>1</CHOICE>
+       <CHOICE>2</CHOICE>
+       <CHOICE>3</CHOICE>
+       <CHOICE>4</CHOICE>
+       <CHOICE>5</CHOICE>
+       <CHOICE>6</CHOICE>
+       <CHOICE>7</CHOICE>
+       <CHOICE>8</CHOICE>
+       <CHOICE>9</CHOICE>
+       </CHOICES>
+   </Field>     
+
+   <Field ID="{943E7530-5E2B-4C02-8259-DE0BCAC66603}" 
+            Name="until0" 
+            DisplayName="Show unill" 
+            Type="DateTime" 
+            Required="FALSE"
+            Format="DateTime" />
+
+    <Field ID="{943E7530-5E2B-4C02-8259-DE0BCAC55503}" 
+            Name="Description0" 
+            DisplayName="Description" 
+            Type="Text"
+            MaxLength="60" 
+            Required="TRUE" />    
+    <Field ID="{943E7530-5E2B-4C02-8259-DE0BCAC44403}" 
+            Name="Employee" 
+            DisplayName="Employee" 
+            Type="User" 
+            Required="FALSE" />     
+
+   <ContentType ID="0x010042D0C1C200A14B6887742B6344666AAA" 
+           Name="SPFxEmployee" 
+           Group="SPFx Content Types" 
+           Description="Spotlight content type">
+       <FieldRefs>
+           <FieldRef ID="{943E7530-5E2B-4C02-8259-DE0BAAA60002}" />
+           <FieldRef ID="{943E7530-5E2B-4C02-8259-DE0BCAC66603}" />
+           <FieldRef ID="{943E7530-5E2B-4C02-8259-DE0BCAC55503}" />
+           <FieldRef ID="{943E7530-5E2B-4C02-8259-DE0BCAC44403}" />
+       </FieldRefs>
+   </ContentType> 
+
+   <ListInstance 
+           CustomSchema="librarySchema.xml"
+           FeatureId="00bfea71-e717-4e80-aa17-d0c71b360101"
+           Title="Spotlight" 
+           Description="Spotlight List"
+           TemplateType="101"
+           Url="Spotlight">
+   </ListInstance>
+
+   <Module Name="UploadAssets" Url="Spotlight">
+        <File Path="8.jpg" Url="8.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE">
+            <Property Name="ContentTypeId" Value="0x010042D0C1C200A14B6887742B6344666AAA" />
+            <Property Name="order0" Value="1" />            
+            <Property Name="Description0" Value="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+            <Property Name="Employee" Value="42" />
+            <Property Name="until0" Value="2022-12-31T21:00:00Z" />
+        </File>
+        <File Path="54.jpg" Url="54.jpg" Type="GhostableInLibrary" ReplaceContent="TRUE">
+            <Property Name="ContentType" Value="SPFxEmployee" />
+            <Property Name="Description0" Value="Excepteur sint occaecat cupidatat non proident" />
+            <Property Name="order0" Value="2" />
+            <Property Name="Employee" Value="35" />
+            <Property Name="until0" Value="2022-12-31T21:00:00Z" />
+
+            
+        </File>
+        
+    </Module>    
+
+</Elements>

@@ -1,0 +1,32 @@
+define([], function() {
+  return {
+    "PropertyPageTextPanel": "Customize the Text Panel settings",
+    "PropertyPageGeneral": "Customize the general settings",
+    "BasicGroupName": "Data",
+    "GeneralGroupName": "General",
+    "EnableArrows": "Enable Arrows",
+    "EnableBullets": "Enable Bullets",
+    "EnablePlayButton": "Enable Play Button",
+    "EnableFullscreenButton": "Enable Fullscreen Button",
+    "EnableZoomPanel": "Enable Zoom Panel",
+    "ControlsAlwaysOn": "Controls Always On",
+    "TextPanelGroupName": "Text Panel",
+    "TextPanelEnableFieldLabel": "Enable textpanel",
+    "TextPanelAlwaysOnTopFieldLabel": "Always on top",
+    "TextPanelOpacityFieldLabel": "Opacity",
+    "TextPanelFontFieldLabel": "Font",
+    "TextPanelFontSizeFieldLabel": "Font Size",
+    "TextPanelBackgroundColorFieldLabel": "Background Color",
+    "TextPanelAlignFieldLabel": "Text align",
+    "TextPanelFontColorFieldLabel": "Font Color",
+    "ErrorSelectList": "Please edit the webpart and select a picture library. If the picture library dropdown list is empty, please create a new Picture Library in the current web site.",
+    "EffectsGroupName": "Effects",
+    "Transition": "Transition",
+    "EnableProgressIndicator": "Enable Progress Indicator",
+    "PreserveRatio": "Preserve Ratio",
+    "PauseOnMouseover": "Pause On Mouseover",
+    "Carousel": "Carousel",
+    "Autoplay": "Autoplay",
+    "Speed": "Speed (ms)"
+  }
+});

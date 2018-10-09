@@ -1,0 +1,58 @@
+#Project_Properties_body{
+	margin:2px 0 0 0px;
+	width: 350px;
+	padding-left: 30px;
+	
+}
+
+
+.profile-picture {
+	border-radius: 50%;
+	height: 70px;
+	width: 70px;
+	padding: 5px;
+}
+
+.person-name {
+	font-weight: bold;
+	font-size: 18px;
+	color: red;
+}
+
+.person-title {
+  color: gray;
+	font-weight: bold;
+}
+
+.project-members-left-cell {
+	display: table-cell;
+	width: 38.2%;
+	vertical-align: top;
+	padding-bottom: 10px;
+}
+
+.person-description {
+	font-size: 12px;
+}
+
+.project-members-right-cell {
+	display: table-cell;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.project-members-row:not(:first-child) {
+  margin-top: 12px;
+}
+.project-members-block {
+    padding-left: 30px;
+    display: table;
+}
+.project-members-row {
+	display: table-row;
+}
+
+hr.divider-right {
+	width: 400px;
+    margin-left: 0px;
+}

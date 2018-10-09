@@ -1,0 +1,92 @@
+.news-title-left {
+    
+    color: blue;
+    float: right;
+    font-size: 18pt;
+    text-transform: uppercase;
+}
+
+#contentBox {
+    padding-top: 0px!important;
+}
+
+span.ms-navedit-flyoutArrow {
+    background-image: none!important;
+}
+
+.divider {
+    width: 85%;
+    float: left;
+}
+
+
+.news-title-container {
+    width: 100%;
+    display: inline-block;
+}
+.news-item {
+    width: 100%;
+    min-height: 120px;
+    max-height: 150px;
+    margin-bottom: 15px;
+}
+
+.news-date {
+    float: left;
+    width: 80px;
+    text-align: center;
+    background-position-x: center;
+    background-image: url("News-calendar.png");
+    background-repeat: no-repeat;
+    height: 80px;
+}
+
+.news-info {
+    float: right;
+    width: 85%;
+}
+
+.news-header {
+    font-size: 13pt;
+    font-weight: 700;
+
+}
+
+.news-desc {
+    font-size: 11pt;
+    position: relative;
+}
+
+.news-desc:after {
+    position: absolute;
+    bottom: -5px;  
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to top,
+       rgba(255,255,255, 1) 20%, 
+       rgba(255,255,255, 0) 80%
+    );
+    pointer-events: none; /* so the text is still selectable */
+  }
+
+.news-actions {
+    float: right;
+}
+
+.news-actions a {
+    color: gray;
+}
+
+.month {
+    color:white;
+}
+
+.day { 
+    font-size: 28pt;
+}
+
+#all-news {    
+    margin-right: 0px;
+    margin-left: 24px;
+}

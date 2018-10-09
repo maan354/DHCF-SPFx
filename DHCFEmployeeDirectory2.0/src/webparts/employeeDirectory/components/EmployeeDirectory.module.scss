@@ -1,0 +1,50 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+
+
+
+
+
+.employeeDirectory {
+
+  .leftpanel {
+    display: block;
+    float: left;
+    width: 400px;
+    border: 0px;
+    border-style: solid;
+    border-color: lightgray;
+  }
+
+  .rightpanel {
+    margin-left: 400px;
+  }
+
+  .employee {
+    margin-bottom: 30px;
+  }
+
+  .employeeGrid {
+    position: relative;
+    min-height: 30px;
+    width: 800px;
+  }
+
+  .employeeGridRow {
+    @include ms-Grid-row;
+    max-height: 150px;
+  }
+
+  .employeeGridCol {
+    @include ms-Grid-col;
+  }
+
+  .search {
+    margin-bottom: 30px;
+  }
+
+  .msPersonaPrimaryTextHoverCard {
+    cursor: pointer;
+  }
+
+}
