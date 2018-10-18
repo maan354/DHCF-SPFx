@@ -1,0 +1,162 @@
+div[class^='rightpanel_'] {
+    padding-left: 10px!important;
+  margin-left: 420px;
+  border-radius: 2px;
+background-color: white;
+box-shadow: 0 3px 3px rgba(0,0,0,0.05), inset 0 4px 0 saddlebrown;
+  padding-top: 20px;
+   
+}
+
+div[class^='leftpanel_'] {
+    display: block;
+float: left;
+width: 370px;
+border: 0px;
+border-style: solid;
+border-color: lightgray;
+  border-radius: 2px;
+background-color: white;
+box-shadow: 0 3px 3px rgba(0,0,0,0.05), inset 0 4px 0 saddlebrown;
+  
+}
+
+
+
+.CanvasZoneContainer {
+	background-color: rgb(250, 250, 250)!important;
+}
+
+.ms-SearchBox-iconContainer{
+	background-color: white;
+}
+
+div[class^='ms-SearchBox'] {
+	background-color: white;	
+	border-radius: 2px;
+	margin-right: 10px;
+	
+}
+
+div.selectAll {
+	margin-bottom: 5px;
+}
+
+#Topics123 {
+	margin-right: 20px;
+	margin-left: 0px;
+	padding-left: 30px;
+	padding-top: 2px;
+	margin-bottom: 5px;
+}
+
+#Subtopics123 {
+	margin-right: 20px;
+	margin-left: 0px;
+	padding-left: 30px;
+	padding-top: 2px;
+	margin-bottom: 5px;
+}
+
+#Topics123 > div {
+	height: 30px;
+}
+
+#Subtopics123 > div {
+	height: 30px;
+}
+
+.ms-Checkbox-text {
+	padding-left: 10px;
+}
+
+.ms-Checkbox-checkbox {
+	  border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 3px;
+    transition: border 0.15s ease-in-out 0s, color 0.15s ease-in-out 0s;
+	  
+}
+
+
+
+h3 {
+	color: blue;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 25px;
+	margin-top: 10px;
+	
+}
+
+.Question > h2 {
+	color: rgb(0, 78, 140);
+	margin-top: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+
+
+.ms-Toggle-label {
+	display: inline-flex;
+	font-weight: 700;
+}
+
+div.ms-Toggle {
+	padding: 20px 30px;
+	padding-bottom: 0px;
+}
+
+
+.selectAll {
+	margin-bottom: 20px;
+}
+
+.ms-Toggle-innerContainer {
+	float: right!important;
+	padding-top: 5px!important;
+}
+
+.svg-inline--fa {
+	width: 25px!important;
+}
+
+.Answer {
+	padding-left: 40px;
+	padding-right: 40px;
+
+}
+
+.devider {
+    border-bottom: 1px solid lightgray;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.VoteDown {
+    display: inline-block;
+    color: darkred;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.VoteUp {
+    display: inline-block;
+    color: darkgreen;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+div.FeedBack {
+    color: gray;
+}
+
+div.AnswerVotes {
+    padding-top: 10px;
+}

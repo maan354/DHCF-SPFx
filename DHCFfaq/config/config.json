@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "dhc-ffaq-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/dhcFfaq/DhcFfaqWebPart.js",
+          "manifest": "./src/webparts/dhcFfaq/DhcFfaqWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "sp-client-custom-fields": "node_modules/sp-client-custom-fields/dist/sp-client-custom-fields.bundle.js"    
+  },
+  "localizedResources": {
+    "DhcFfaqWebPartStrings": "lib/webparts/dhcFfaq/loc/{locale}.js",
+    "sp-client-custom-fields/strings": "node_modules/sp-client-custom-fields/lib/loc/en-us.js"
+  }
+}

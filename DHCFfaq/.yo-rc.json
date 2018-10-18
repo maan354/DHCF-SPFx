@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.6.0",
+    "libraryName": "dhcf-faq",
+    "libraryId": "7f1b92c2-8130-4001-a92f-a5080fb5f5ec",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}
