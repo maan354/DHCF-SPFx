@@ -11,7 +11,9 @@ export class FAQelement extends React.Component<IFAQelementProps,any> {
     constructor(props) {
         super(props);
         this.state = { showDetails: false,
-                       height: 0   }
+                       height: 0,
+                       voted: false  
+                       }
         this.DisplayDetails = this.DisplayDetails.bind(this);
         
     }
@@ -24,10 +26,39 @@ export class FAQelement extends React.Component<IFAQelementProps,any> {
         }));          
     }
     
+    handleClick(d1, d2) {
+
+      this.setState({ voted: true }); 
+      this.props.handleVote(d1,d2);
+    }
 
     render() {
 
+      let Vote;
+      if (this.state.voted) {
+        Vote = (
+          <div className="FeedBack">
+                    Thank you for your feedback!                   
+                  </div> 
+        )
+      }
+      else {
+        
+        Vote = (
+          <div className="FeedBack">
+                    Was it helpful? 
+                    <div className='VoteUp' onClick={(e) => this.handleClick((this.props.data.VoteUP + 1), this.props.data.Id)}>
+                      <FontAwesomeIcon icon={faThumbsUp}/>
+                    </div>
+                    <div className='VoteDown' onClick={(e) => this.handleClick((this.props.data.VoteUP - 1), this.props.data.Id)}>
+                      <FontAwesomeIcon icon={faThumbsDown} />
+                    </div>
+                  </div> 
+        )
+      }
+      
 
+      
       
       return (
 
@@ -47,15 +78,7 @@ export class FAQelement extends React.Component<IFAQelementProps,any> {
           <div className={"Answer "  + (this.state.showDetails ? 'Expanded' : 'NotExpanded')}>   
             <span> {this.props.data.Answer}   </span>
             <div className="AnswerVotes"> 
-                <div className="FeedBack">
-                  Was it helpful? 
-                  <div className='VoteUp' onClick={(e) => this.props.handleVote((this.props.data.VoteUP + 1), this.props.data.Id)}>
-                    <FontAwesomeIcon icon={faThumbsUp}/>
-                  </div>
-                  <div className='VoteDown' onClick={(e) => this.props.handleVote((this.props.data.VoteUP - 1), this.props.data.Id)}>
-                    <FontAwesomeIcon icon={faThumbsDown} />
-                  </div>
-                </div>               
+                  {Vote}            
             </div>
             <div className="devider"></div>
           </div>

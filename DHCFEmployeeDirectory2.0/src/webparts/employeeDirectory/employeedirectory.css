@@ -1,0 +1,288 @@
+div[class^='ms-SearchBox search_'] {
+	background-color: white;
+	max-width: 900px;
+	border-radius: 2px;
+}
+
+.Administrations {
+	background-color: white;
+	margin-right: 20px;
+	margin-left: 0px;
+	padding-left: 30px;
+	padding-top: 2px;
+	padding-right: 30px;
+	border-radius: 2px;
+  	background-color: white;
+  	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), inset 0 -1px 0 0 rgba(0,0,0,0.2), inset 0 4px 0 saddlebrown;
+	margin-bottom: 30px;
+}
+
+div.Administrations > div {
+	height: 30px;
+}
+
+
+.Titles {
+	background-color: white;
+	margin-right: 20px;
+	margin-left: 0px;
+	padding-left: 30px;
+	padding-top: 2px;
+	padding-right: 30px;
+	border-radius: 2px;
+  	background-color: white;
+  	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), inset 0 -1px 0 0 rgba(0,0,0,0.2), inset 0 4px 0 saddlebrown;
+	margin-bottom: 30px;
+}
+
+div.Titles > div {
+	height: 30px;
+}
+
+.ms-Checkbox-text {
+	padding-left: 10px;
+}
+
+.ms-Checkbox-checkbox {
+	  border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 3px;
+    transition: border 0.15s ease-in-out 0s, color 0.15s ease-in-out 0s;
+	  
+}
+
+
+
+#Adminis123 > h3 {
+	color: #05458d;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 25px;
+	margin-top: 10px;
+	
+}
+
+#Titles123 > h3 {
+	color: #05458d;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 25px;
+	margin-top: 10px;
+	
+}
+
+.Userphoto {
+	padding-left: 0px;
+	height: 200px;
+	width: 200px;
+	overflow: hidden;
+	transition: height 200ms ease-in;
+}
+
+img.UserIMG {
+	height: 200px;
+	width: 200px;	
+	-o-object-fit: contain;
+}
+
+.UserName {
+	color: red;
+	font-size: 14pt;
+	font-weight: 560;
+	padding-top: 10px;
+	padding-bottom: 0px;
+}
+
+.UserTitle {
+	color: black;
+	font-size: 10pt;
+	font-weight: normal;
+	letter-spacing: normal;
+	padding-bottom: 20px;
+
+}
+
+.UserDept {
+	color: black;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+
+.persona-appear {
+  opacity: 0.01;
+}
+
+.persona-appear.persona-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.persona-enter {
+  opacity: 0.01;
+}
+
+.persona-enter.persona-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.persona-leave {
+  opacity: 1;
+}
+
+.persona-leave.persona-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.ms-Toggle-label {
+	display: inline-flex;
+	font-weight: 700;
+}
+
+/*
+div.ms-Toggle {
+	padding: 0px;
+	padding-top: 10px;
+} */
+
+
+.selectAll {
+	margin-bottom: 20px;
+	padding-top: 10px;
+}
+
+.ms-Toggle-innerContainer {
+	float: right!important;
+	padding-top: 5px!important;
+}
+
+p.showmoreadmins {
+	transition: opacity 300ms ease-in;
+	opacity: 0.4;
+	text-decoration: underline;	
+	width: 80px;
+}
+
+p.showmoretitles {
+	transition: opacity 300ms ease-in;
+	opacity: 0.4;
+	text-decoration: underline;	
+	width: 80px;
+}
+
+p.showmoreadmins:hover {
+	cursor: pointer;
+	opacity: 0.8;
+
+}
+
+p.showmoretitles:hover {
+	cursor: pointer;
+	opacity: 0.8;
+
+}
+
+p.showlessadmins {
+	transition: opacity 300ms ease-in;
+	opacity: 0.4;
+	text-decoration: underline;	
+	width: 80px;
+}
+
+p.showlesstitles {
+	transition: opacity 300ms ease-in;
+	opacity: 0.4;
+	text-decoration: underline;	
+	width: 80px;
+}
+
+p.showlessadmins:hover {
+	cursor: pointer;
+	opacity: 0.8;
+
+}
+
+p.showlesstitles:hover {
+	cursor: pointer;
+	opacity: 0.8;
+
+}
+
+.Userphoto.Expanded {
+	height: 0px;
+	
+} 
+
+.UserDetails {
+	margin-top: 80px;
+	
+}
+
+.UserDetails.Expanded {
+	
+	height: 150px;
+	transition: height 0.26s ease 150ms;
+		
+}
+
+.UserDetails.NotExpanded {
+	height: 0px!important;
+	opacity: 0;
+    transition: height 0.26s ease;
+	
+}
+
+.DHCFpersona {
+	overflow: hidden;
+}
+
+.userData {
+	padding-left: 10px;
+}
+
+div.personadata > svg {
+    width: 25px!important;
+	color: #a2a2a2;
+}
+
+.UserDetails > div {
+	padding-bottom: 7px;
+}
+
+div[class^='employeeGridCol_'] {
+	height: 350px;
+	background-color: rgb(255, 255, 255)!important;
+	width: 240px!important;     /* ! update with media querry!!!! */
+	margin-right: 9%;
+	padding-right: 20px!important;;
+	padding-top: 10px;
+	padding-left: 20px!important;;
+	margin-bottom: 30px;
+	border-radius: 2px;
+  	background-color: white;
+ /* box-shadow: 0 3px 3px rgba(0,0,0,0.05), inset 0 4px 0 white; */
+ 	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), inset 0 -1px 0 0 rgba(0,0,0,0.2);
+	transition-property: outline,border-color,box-shadow;
+  	transition-duration: 200ms;
+  	transition-timing-function: ease-out;
+	
+
+}
+
+div[class^='employeeGridCol_']:hover {
+	box-shadow: 0 5px 8px 0 rgba(146,170,187,0.3), inset 0 4px 0 white;
+    cursor: pointer;
+}
+
+.CanvasZoneContainer {
+	background-color: rgb(250, 250, 250);
+}
+
+.ms-SearchBox-iconContainer{
+	background-color: white;
+}
+

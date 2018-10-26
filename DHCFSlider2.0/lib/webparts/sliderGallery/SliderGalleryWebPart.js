@@ -84,7 +84,7 @@ var SliderGalleryWebPart = (function (_super) {
                 if (altText == null || altText == '')
                     altText = object.File.Name;
                 //Render the item
-                outputHtml += "\n                <img alt=\"" + altText + "\" src=\"" + object.File.ServerRelativeUrl + "\"\n                  data-image=\"" + object.File.ServerRelativeUrl + "\"\n                  data-description=\"" + altText + "\">\n            ";
+                outputHtml += "\n                <img alt=\"" + altText + "\" src=\"" + object.File.ServerRelativeUrl + "\"\n                  data-image=\"" + object.File.ServerRelativeUrl + "\"\n                  data-description=\"" + object.Description + "\">\n            ";
             });
             outputHtml += '</div>';
             _this.domElement.innerHTML = outputHtml;

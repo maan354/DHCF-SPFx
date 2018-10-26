@@ -8,4 +8,5 @@ export interface IEmployeeDirectoryProps {
   updateProperty: (value: string) => void;
   displayMode: DisplayMode;
   context: IWebPartContext;
+  graphClient: any;
 }

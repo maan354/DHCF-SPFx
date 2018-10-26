@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import styles from './DhcFfaq.module.scss';
 import { Checkbox, ICheckboxProps, Toggle } from 'office-ui-fabric-react';
+import AnimateHeight from 'react-animate-height';
 
 
 
@@ -12,7 +13,9 @@ export class LeftPanel extends React.Component<any, any> {
  
     this.state = { showalladmins: false };
     this.state = { isChecked: true }
+    this.state = { divHeight: 'auto' }
     this.deselectAllAdmins = this.deselectAllAdmins.bind(this);
+    this.handleChange2 = this.handleChange2.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
   }
@@ -20,22 +23,6 @@ export class LeftPanel extends React.Component<any, any> {
   private CheckedBoxes = [];
   /**** liftin' state up */
   handleChange(current, e) {
-    console.log(current);  
-    const index = this.CheckedBoxes.indexOf(current.topic);
-    if (index === -1) {
-      this.CheckedBoxes.push(current.topic);
-    }
-    else {
-      this.CheckedBoxes.splice(index, 1);
-    }
-    this.setState({ isChecked: false });
-    this.props.updateChecks(current, e);
-    this.setState({ selectAllAdmins: false });    
-  }
-
-  handleChange2(current, e) {
-    console.log(current);
-      
     const index = this.CheckedBoxes.indexOf(current);
     if (index === -1) {
       this.CheckedBoxes.push(current);
@@ -44,9 +31,29 @@ export class LeftPanel extends React.Component<any, any> {
       this.CheckedBoxes.splice(index, 1);
     }
     this.setState({ isChecked: false }); 
-    this.props.updateChecks(current, e);
+    this.props.updateSubs(current, e);
     this.setState({ selectAllAdmins: false });
-    ReactDom.findDOMNode(this).scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });    
+    ReactDom.findDOMNode(this).scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });     
+  }
+
+  handleChange2(current, e) {
+      
+    const index = this.CheckedBoxes.indexOf(current);    
+    this.setState({ divHeight: 100 }); 
+    if (index === -1) {
+      this.CheckedBoxes.push(current);      
+    }
+    else {
+      this.CheckedBoxes.splice(index, 1);      
+    }
+    this.setState({ isChecked: false }); 
+    this.props.updateChecks(current, e);
+    this.setState({ selectAllAdmins: false }); 
+    setTimeout(function(){
+      this.setState({ divHeight: "auto" });
+      }.bind(this)
+      ,300);
+       
   }
 
   
@@ -69,7 +76,7 @@ export class LeftPanel extends React.Component<any, any> {
       let item;
       let obj;
       for (item = 0; item < this.CheckedBoxes.length; item++) {
-        obj = { topic: this.CheckedBoxes[item] }
+        obj =  this.CheckedBoxes[item];
         this.props.updateChecks(obj);
       }
     }
@@ -77,6 +84,7 @@ export class LeftPanel extends React.Component<any, any> {
       this.CheckedBoxes = [];
       this.setState({ isChecked: true });
       this.props.updateChecks(null);
+      this.props.updateSubs(null);
     }
   }
 
@@ -96,7 +104,7 @@ export class LeftPanel extends React.Component<any, any> {
       
       return (
         <div>
-          <Checkbox checked={this.isChecked(subtopic)} label={subtopic.substring(0, 35)} onChange={(e) => this.handleChange2(subtopic, e)} />
+          <Checkbox checked={this.isChecked(subtopic)} label={subtopic.substring(0, 35)} onChange={(e) => this.handleChange(subtopic, e)} />
         </div>
       )
 
@@ -104,16 +112,22 @@ export class LeftPanel extends React.Component<any, any> {
 
 
     return (
-      <div className={styles.leftpanel}>
-        <div className="selectAll">  <Toggle checked={this.state.isChecked} label="Display All" onText="On" offText="Off" onChanged={this.deselectAllAdmins} />  </div>
+      <div className={styles.left_panel}>
+        <div className="selectAlltopics">  <Toggle checked={this.state.isChecked} label="Display All" onText="On" offText="Off" onChanged={this.deselectAllAdmins} />  </div>
         <div id="Topics123" className="Topics">
           <h3> TOPICS</h3>
           {topics}
         </div>
+        <AnimateHeight
+          duration={ 300 }
+          height={ this.state.divHeight }
+          easing= { 'ease-out' }
+        >
         <div id="Subtopics123" className="Subtopics">
           <h3> SUBTOPICS</h3>
           {subtopics}
         </div>
+        </AnimateHeight>
       </div>
     );
   }

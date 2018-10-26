@@ -29,7 +29,7 @@ export interface IDhcfSpotlightWebPartProps {
 export default class DhcfSpotlightWebPart extends BaseClientSideWebPart<IDhcfSpotlightWebPartProps> {
 
   public onInit(): Promise<void> {
-    SPComponentLoader.loadCss('https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCFStyles.css');
+   // SPComponentLoader.loadCss('https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCFStyles.css');
     return super.onInit();
   } 
 

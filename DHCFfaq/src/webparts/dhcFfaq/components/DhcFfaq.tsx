@@ -16,13 +16,15 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
     loading: true,
     filterOptions: [],
     filterOptions2: [],
-    filters: []
+    filters: [],
+    sub_filters: []
   };
 
   constructor(props: IDhcFfaqProps) {
     super(props);
     this.state = this._initialState;
     this._updateFilters = this._updateFilters.bind(this);
+    this._updateSubs = this._updateSubs.bind(this);  
     this._onSearchClear = this._onSearchClear.bind(this);
     this._onSearch = this._onSearch.bind(this);
     this.updateFAQ = this.updateFAQ.bind(this);
@@ -57,13 +59,14 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
 
   }
 
-
+  private trimedSub;
 
   
 
   public render(): React.ReactElement<IDhcFfaqProps> {
 
     const local_filters = new Set(this.state.filters);
+    const local_subs = new Set(this.state.sub_filters);
     let filtered_users = [];
    // const data = this.state.data
 
@@ -73,9 +76,23 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
           filtered_users.push(o);
         }
       })
+      this.trimedSub = this.trimSubtopics(filtered_users);
     }
     else {
       filtered_users = this.state.data;
+      this.trimedSub = null;
+    }
+
+    if (local_subs.size !== 0) {
+        
+        let trimed_data = filtered_users.filter(o =>
+          local_subs.has(o.Subtopic)
+          )    
+        filtered_users = trimed_data 
+        console.log(trimed_data )    
+    }
+    else {
+        filtered_users = filtered_users
     }
 
     if (this.state.search) {
@@ -83,12 +100,10 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
         o.Answer.toLowerCase().includes(this.state.search.toLowerCase()) ||
         o.Title_x0020__x0028_Question_x002.toLowerCase().includes(this.state.search.toLowerCase())
       )
-
-      /**** spliting users by number of columns */
       filtered_users = theusers;
     }
     else {
-      filtered_users = filtered_users;
+      filtered_users = filtered_users;      
     }
 
     
@@ -104,8 +119,8 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
 
     return (
       <div className="App">
-        <LeftPanel data={this.state.filterOptions} data2={this.state.filterOptions2} updateChecks={this._updateFilters} />
-        <div className={styles.rightpanel}>
+        <LeftPanel data={this.state.filterOptions} data2={this.trimedSub || this.state.filterOptions2} updateSubs={this._updateSubs} updateChecks={this._updateFilters} />
+        <div className={styles.right_panel}>
           <SearchBox
             placeholder="Search FAQs"
             onChange={this._onSearch}
@@ -135,7 +150,7 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
     this._onSearch();
   }
 
-  public _updateFilters(current, e): void {    
+  public _updateFilters(current, e): void {   
     if (current === null) 
       this.setState({ filters: [] })
     else if (current) {
@@ -154,16 +169,35 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
       }    
   }
 
+  public _updateSubs(current, e): void {   
+    if (current === null) 
+      this.setState({ sub_filters: [] })
+    else if (current) {
+        let array = this.state.sub_filters
+        const index = array.indexOf(current);
+        if (index == -1) {
+          array.push(current);
+        }
+        else {
+          array.splice(index, 1);
+        }
+        this.setState({
+          sub_filters: array
+        });
+        console.log(this.state.sub_filters)        
+      }    
+  }
+
   private getFAQs(_context): Promise<any> {
-      //let url:string = _context.pageContext.web.absoluteUrl + `/_api/lists/GetByTitle('FAQ - List')/items`;
-      let url:string = `https://dcgovict.sharepoint.com/sites/dhcf/it/_api/lists/GetByTitle('FAQ - List')/items`;
+      let url:string = _context.pageContext.web.absoluteUrl + `/_api/lists/GetByTitle('FAQ')/items`;
+      //let url:string = `https://dcgovict.sharepoint.com/sites/dhcf/it/_api/lists/GetByTitle('FAQ - List')/items`;
       return _context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
         return response.json();
       });
   }
 
   private updateFAQ(id,data) {
-    this.props.context.spHttpClient.post(`https://dcgovict.sharepoint.com/sites/dhcf/it/_api/web/lists/getbytitle('FAQ - List')/items(${id})`,
+    this.props.context.spHttpClient.post(this.props.context.pageContext.web.absoluteUrl + `/_api/lists/GetByTitle('FAQ')/items(${id})`,
     SPHttpClient.configurations.v1,  
     {  
       headers: {  
@@ -191,9 +225,7 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
 
   private trimSubtopics(data) {
     let _subtopics = Array.from(new Set(data.map(item => item.Subtopic))).sort();
-    this.setState({
-      filterOptions2: _subtopics
-    });
+    return _subtopics  
   }
 
   

@@ -50,10 +50,10 @@ export class DHCFPersona extends React.Component<{userPhoto: string, userName: s
           
            
               <div className={"UserDetails " + (this.state.showDetails ? 'Expanded' : 'NotExpanded')}> 
-              <div><FontAwesomeIcon icon={faPhone} /><span className="userData"> {this.props.userWorkPhone ? this.props.userWorkPhone : " --- "}</span></div>
-              <div><FontAwesomeIcon icon={faMobile} /><span  className="userData"> {this.props.userMobilePhone ? this.props.userMobilePhone : " --- "}</span></div>
-              <div><FontAwesomeIcon icon={faUsers} /><span  className="userData"> {this.props.userDepartment ? this.props.userDepartment : " --- "}</span></div>
-              <div><FontAwesomeIcon icon={faEnvelope} /> <span className="userData"> {this.props.userEmail ? this.props.userEmail : " --- "}</span></div>
+              <div className="personadata"><FontAwesomeIcon icon={faPhone} /><span className="userData"> {this.props.userWorkPhone ? this.props.userWorkPhone : " --- "}</span></div>
+              <div className="personadata"><FontAwesomeIcon icon={faMobile} /><span  className="userData"> {this.props.userMobilePhone ? this.props.userMobilePhone : " --- "}</span></div>
+              <div className="personadata"><FontAwesomeIcon icon={faUsers} /><span  className="userData"> {this.props.userDepartment ? this.props.userDepartment : " --- "}</span></div>
+              <div className="personadata"><FontAwesomeIcon icon={faEnvelope} /> <span className="userData"> {this.props.userEmail ? this.props.userEmail : " --- "}</span></div>
                </div>
         </div>
         </CSSTransitionGroup>

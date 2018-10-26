@@ -107,7 +107,7 @@ export default class SliderGalleryWebPart extends BaseClientSideWebPart<ISliderG
             outputHtml += `
                 <img alt="${altText}" src="${object.File.ServerRelativeUrl}"
                   data-image="${object.File.ServerRelativeUrl}"
-                  data-description="${altText}">
+                  data-description="${object.Description}">
             `;
           });
           outputHtml += '</div>';

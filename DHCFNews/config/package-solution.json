@@ -3,7 +3,7 @@
   "solution": {
     "name": "DHCF-News",
     "id": "6a0a88db-7f56-43c0-93d0-c4c020f433fb",
-    "version": "1.0.4.0",
+    "version": "1.0.5.0",
     "includeClientSideAssets": true
   },
   "paths": {

@@ -5,4 +5,5 @@ export interface IFAQState {
     filterOptions: any;
     filterOptions2: any;
     filters: any[];
+    sub_filters: any[];
   }

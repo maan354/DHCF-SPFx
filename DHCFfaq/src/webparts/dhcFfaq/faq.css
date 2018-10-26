@@ -1,30 +1,28 @@
-div[class^='rightpanel_'] {
-    padding-left: 10px!important;
+div[class^='right_panel_'] {
+  padding-left: 10px!important;
   margin-left: 420px;
   border-radius: 2px;
-background-color: white;
-box-shadow: 0 3px 3px rgba(0,0,0,0.05), inset 0 4px 0 saddlebrown;
-  padding-top: 20px;
-   
+  background-color: white;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), inset 0 -1px 0 0 rgba(0,0,0,0.2), inset 0 4px 0 saddlebrown;
+  padding-top: 20px;   
 }
 
-div[class^='leftpanel_'] {
+div[class^='left_panel_'] {
     display: block;
-float: left;
-width: 370px;
-border: 0px;
-border-style: solid;
-border-color: lightgray;
-  border-radius: 2px;
-background-color: white;
-box-shadow: 0 3px 3px rgba(0,0,0,0.05), inset 0 4px 0 saddlebrown;
-  
+	float: left;
+	width: 370px;
+	border: 0px;
+	border-style: solid;
+	border-color: lightgray;
+	border-radius: 2px;
+	background-color: white;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), inset 0 -1px 0 0 rgba(0,0,0,0.2), inset 0 4px 0 saddlebrown; 
 }
 
 
 
 .CanvasZoneContainer {
-	background-color: rgb(250, 250, 250)!important;
+	background-color: #f4f4f4;
 }
 
 .ms-SearchBox-iconContainer{
@@ -38,9 +36,7 @@ div[class^='ms-SearchBox'] {
 	
 }
 
-div.selectAll {
-	margin-bottom: 5px;
-}
+
 
 #Topics123 {
 	margin-right: 20px;
@@ -82,14 +78,24 @@ div.selectAll {
 
 
 
-h3 {
-	color: blue;
+#Subtopics123 > h3 {
+	color: #05458d;
 	font-size: 24px;
 	font-weight: normal;
 	margin-bottom: 25px;
 	margin-top: 10px;
+	transition: height 200ms ease-in;
 	
 }
+
+#Topics123 > h3 {
+	color: #05458d;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 25px;
+	margin-top: 10px;
+}
+
 
 .Question > h2 {
 	color: rgb(0, 78, 140);
@@ -105,14 +111,17 @@ h3 {
 	font-weight: 700;
 }
 
-div.ms-Toggle {
+/* div.ms-Toggle {
 	padding: 20px 30px;
 	padding-bottom: 0px;
-}
+} */
 
 
-.selectAll {
-	margin-bottom: 20px;
+
+
+.selectAlltopics {
+
+	padding: 20px 30px;
 }
 
 .ms-Toggle-innerContainer {
@@ -141,14 +150,14 @@ div.ms-Toggle {
 
 .VoteDown {
     display: inline-block;
-    color: darkred;
+    color: darkred!important;
     padding-left: 5px;
     cursor: pointer;
 }
 
 .VoteUp {
     display: inline-block;
-    color: darkgreen;
+    color: darkgreen!important;
     padding-left: 5px;
     cursor: pointer;
 }

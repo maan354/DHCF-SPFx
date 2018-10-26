@@ -17,15 +17,27 @@ import * as strings from 'EmployeeDirectoryWebPartStrings';
 import EmployeeDirectory from './components/EmployeeDirectory';
 import { IEmployeeDirectoryProps } from './components/IEmployeeDirectoryProps';
 import { IEmployeeDirectoryWebPartProps } from './IEmployeeDirectoryWebPartProps';
+import { MSGraphClient } from '@microsoft/sp-http';
 
-
+require('./employeedirectory.css');
 
 export default class EmployeeDirectoryWebPart extends BaseClientSideWebPart<IEmployeeDirectoryWebPartProps> {
 
-
-  public onInit(): Promise<void> {
+  private graphClient: MSGraphClient;
   
-    return super.onInit();
+  public onInit(): Promise<void> {
+    
+    //return super.onInit();
+
+    return new Promise<void>((resolve: () => void, reject: (error: any) => void): void => {
+      this.context.msGraphClientFactory
+        .getClient()
+        .then((client: MSGraphClient): void => {
+          this.graphClient = client;
+          resolve();
+        }, err => reject(err));
+    });
+
   } 
 
   public render(): void {
@@ -49,7 +61,8 @@ export default class EmployeeDirectoryWebPart extends BaseClientSideWebPart<IEmp
         updateProperty: (value: string) => {
           this.properties.title = value;
         },
-        context: this.context
+        context: this.context,
+        graphClient: this.graphClient
       }
     );
 

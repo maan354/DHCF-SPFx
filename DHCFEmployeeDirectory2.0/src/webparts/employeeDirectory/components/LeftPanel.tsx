@@ -118,17 +118,18 @@ export class LeftPanel extends React.Component<any, any> {
     })
 
 
-    return (<div className={styles.leftpanel}>
+    return (
+    <div className={styles.leftpanel}>     
       <div id="Adminis123" className="Administrations">
-        <h3> ADMINISTRATIONS</h3>
-        <div className="selectAll">  <Toggle checked={this.state.isChecked} label="Display All" onText="On" offText="Off" onChanged={this.deselectAllAdmins} />  </div>
+      <div className="selectAll">  <Toggle checked={this.state.isChecked} label="Display All" onText="On" offText="Off" onChanged={this.deselectAllAdmins} />  </div>
+        <h3> ADMINISTRATIONS</h3>       
         {admins}
       </div>
       <div id="Titles123" className="Titles">        
         <h3> JOB TITLES </h3>
-        <div className="selectAll">  <Toggle disabled={true} checked={true} label="Display All" onText="On" offText="Off" />  </div>
         {titles}
       </div>
-    </div>);
+    </div>
+    );
   }
 }

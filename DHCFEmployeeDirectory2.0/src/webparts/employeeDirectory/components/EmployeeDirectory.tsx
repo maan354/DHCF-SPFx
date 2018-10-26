@@ -16,6 +16,7 @@ import { LeftPanel } from './LeftPanel';
 import { DHCFPersona } from './DHCFPersona';
 
 
+
 export default class EmployeeDirectory extends React.Component<IEmployeeDirectoryProps, IEmployeeDirectoryState> {
 
   private _initialState: IEmployeeDirectoryState = {
@@ -67,6 +68,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
           });
         })
         .catch((error: any) => console.error(error));
+      // this.getGraphUsers();
     });
 
   }
@@ -258,6 +260,36 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
     return _context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
       return response.json();
     });
+  }
+
+  private getGraphUsers(): Promise<any> {
+    if (!this.props.graphClient) {
+      return;
+    }
+
+    this.props.graphClient
+      .api("users")
+      .version("v1.0")
+   //   .select("bodyPreview,receivedDateTime,from,subject,webLink")
+   //   .top(5)
+   //   .orderby("receivedDateTime desc")
+      .get((err: any, res: any): void => {
+        if (err) {
+          // Something failed calling the MS Graph          
+          console.log("error: ", err.message);                      
+          return;
+        }
+
+        // Check if a response was retrieved
+        if (res && res.value && res.value.length > 0) {
+          console.log(res);
+        }
+        else {
+          // No messages found
+          console.log("Nada!")
+        }
+      });
+
   }
 
   private getAdmins(_users) {

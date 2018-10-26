@@ -52,11 +52,37 @@ span.ms-navedit-flyoutArrow {
 
 }
 
+.news-item {
+    display: table;
+}
+
 .news-desc {
     font-size: 11pt;
     position: relative;
+    line-height: 20px;
 }
 
+.b-morelines_section_ellipsis:after {    
+    content: '';
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 75%;
+    height: 25px;    
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 65%);
+  } 
+
+.b-morelines_section_button {
+    padding-right: 0px;
+    margin-right: 0px;
+    color: gray;
+    cursor: pointer;
+    text-align: right;
+    width: 100%;
+  }
+
+/*
 .news-desc:after {
     position: absolute;
     bottom: -5px;  
@@ -68,7 +94,8 @@ span.ms-navedit-flyoutArrow {
        rgba(255,255,255, 0) 80%
     );
     pointer-events: none; /* so the text is still selectable */
-  }
+/*  } 
+*/
 
 .news-actions {
     float: right;
