@@ -1,0 +1,79 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "3f378f3d-733d-34b6-8470-17317bb0b275",
+  "alias": "NewsCarousel",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "72505c62-b3c0-4cc3-89d8-f2adc8d962a0",
+    "group": { "default": "News Management" },
+    "title": { "default": "News Carousel" },
+    "description": { "default": "Insert a classical, responsive, cool & touch ready News Carousel. With this web part, you can add easily news focus in your SharePoint site. The users can easily navigate in news items, with buttons or with touch." },
+    "officeFabricIconFontName": "News",
+    "properties": {
+      "enableArrows": true,
+      "enableBullets": true,
+      "enablePlayButton": false,
+      "enableFullscreenButton": false,
+      "enableZoomPanel": false,
+      "controlsAlwaysOn": true,
+      "preserveRatio": true,
+      "pauseOnMouseover": false,
+      "carousel": true,
+      "autoplay": true,
+      "speed": 2500,
+      "transition": "slide",
+      "enableProgressIndicator": false,
+      "textPanelEnable": true,
+      "textPanelAlwaysOnTop": true,
+      "textPanelOpacity": 0.4,
+      "items": [
+        {
+          "Title": "Discover the new work station",
+          "Enable": "true",
+          "Description": "Smart, fast & easy: discover the new work station",
+          "Link Url": "#",
+          "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-204611-large.jpeg"
+        },
+        {
+          "Title": "All the Intranet in your Smart Phone",
+          "Enable": "true",
+          "Description": "Stay connected with the Intranet App",
+          "Link Url": "#",
+          "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-large.jpg"
+        },
+        {
+          "Title": "Take a break!",
+          "Enable": "true",
+          "Description": "Discover the new coffees selection",
+          "Link Url": "#",
+          "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-70221-large.jpeg"
+        },
+        {
+          "Title": "Discover the new meeting areas",
+          "Enable": "true",
+          "Description": "New meeting areas available at Level 2",
+          "Link Url": "#",
+          "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/space-desk-workspace-coworking-large.jpg"
+        },
+        {
+          "Title": "New travel policies",
+          "Enable": "true",
+          "Description": "The new travel policies are available",
+          "Link Url": "#",
+          "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-large-car.jpg"
+        },
+        {
+          "Title": "New commons",
+          "Enable": "false",
+          "Description": "View the video of the new commons",
+          "Link Url": "#",
+          "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-58801-large.jpeg"
+        }
+      ]
+    }
+  }]
+}

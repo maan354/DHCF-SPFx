@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "3f3e8f3d-033d-34b6-8450-173122222275",
+  "alias": "SimpleCarousel",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "a509fe47-209d-48b7-b27a-6f3841c4033a",
+    "group": { "default": "Images Galleries and Tools" },
+    "title": { "default": "Simple Carousel" },
+    "description": { "default": "The Web Part Simple Carousel allows you to browse a library of images in forms of thumbnails that scroll horizontally." },
+    "officeFabricIconFontName": "Forward",
+    "properties": {
+      "enableArrows": true,
+      "enableBorder": false,
+      "enableIcons": true,
+      "borderColor": "#CCCCCC",
+      "border": 0,
+      "tileDimension": {
+        "width": "160px",
+        "height": "160px"
+      },
+      "pauseOnMouseover": true,
+      "autoplay": true,
+      "speed": 4000,
+      "textPanelEnable": true,
+      "textPanelAlwaysOnTop": false,
+      "textPanelOpacity": 0.4
+    }
+  }]
+}

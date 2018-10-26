@@ -1,0 +1,1197 @@
+[
+  {
+    "id": "af59c2b3-2da7-41fd-8b72-3939817960af",
+    "alias": "SPClientBase",
+    "componentType": "Library",
+    "version": "1.0.0",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-client-base",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-client-base/"
+      ],
+      "scriptResources": {
+        "sp-client-base": {
+          "type": "path",
+          "path": "dist/sp-client-base.js"
+        }
+      }
+    }
+  },
+  {
+    "id": "73e1dc6c-8441-42cc-ad47-4bd3659f8a3a",
+    "alias": "SPLodashSubset",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-lodash-subset",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-lodash-subset/"
+      ],
+      "scriptResources": {
+        "sp-lodash-subset": {
+          "type": "path",
+          "path": "dist/sp-lodash-subset.js"
+        }
+      }
+    }
+  },
+  {
+    "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b",
+    "alias": "SPCoreLibrary",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-core-library",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-page-context/node_modules/@microsoft/sp-core-library/"
+      ],
+      "scriptResources": {
+        "sp-core-library": {
+          "type": "localizedPath",
+          "defaultPath": "dist/sp-core-library_en-us.js"
+        },
+        "@microsoft/sp-lodash-subset": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "73e1dc6c-8441-42cc-ad47-4bd3659f8a3a"
+        }
+      }
+    }
+  },
+  {
+    "id": "f97266fb-ccb7-430e-9384-4124d05295d3",
+    "alias": "Decorators",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "decorators",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/decorators/"
+      ],
+      "scriptResources": {
+        "decorators": {
+          "type": "path",
+          "path": "dist/decorators.js"
+        }
+      }
+    }
+  },
+  {
+    "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6",
+    "alias": "SPHttp",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-http",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-page-context/node_modules/@microsoft/sp-http/"
+      ],
+      "scriptResources": {
+        "sp-http": {
+          "type": "path",
+          "path": "dist/sp-http.js"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@microsoft/decorators": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "f97266fb-ccb7-430e-9384-4124d05295d3"
+        },
+        "@microsoft/sp-lodash-subset": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "73e1dc6c-8441-42cc-ad47-4bd3659f8a3a"
+        },
+        "@ms/sp-telemetry": {
+          "type": "component",
+          "version": "0.2.2",
+          "id": "8217e442-8ed3-41fd-957d-b112e841286a"
+        }
+      }
+    }
+  },
+  {
+    "id": "02a01e42-69ab-403d-8a16-acd128661f8e",
+    "alias": "OfficeUIFabricReact",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "office-ui-fabric-react-bundle",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/office-ui-fabric-react-bundle/"
+      ],
+      "scriptResources": {
+        "office-ui-fabric-react-bundle": {
+          "type": "path",
+          "path": "dist/office-ui-fabric-react-bundle.js"
+        },
+        "react": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+          "failoverPath": "node_modules/react/dist/react.js"
+        },
+        "react-dom": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+          "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+        }
+      }
+    }
+  },
+  {
+    "id": "1e384972-6346-49b4-93c7-b2e6763938e6",
+    "alias": "sp-polyfills",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-polyfills",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-polyfills/"
+      ],
+      "scriptResources": {
+        "sp-polyfills": {
+          "type": "path",
+          "path": "dist/sp-polyfills.js"
+        }
+      }
+    }
+  },
+  {
+    "id": "1c6c9123-7aac-41f3-a376-3caea41ed83f",
+    "alias": "SPLoader",
+    "componentType": "Library",
+    "version": "1.3.0",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-loader",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-loader/"
+      ],
+      "scriptResources": {
+        "sp-loader": {
+          "type": "localizedPath",
+          "paths": {},
+          "defaultPath": "dist/sp-loader_en-us.js"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@ms/sp-telemetry": {
+          "type": "component",
+          "version": "0.2.2",
+          "id": "8217e442-8ed3-41fd-957d-b112e841286a"
+        },
+        "@microsoft/sp-lodash-subset": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "73e1dc6c-8441-42cc-ad47-4bd3659f8a3a"
+        }
+      }
+    }
+  },
+  {
+    "id": "1c4541f7-5c31-41aa-9fa8-fbc9dc14c0a8",
+    "alias": "SPPageContext",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-page-context",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-page-context/"
+      ],
+      "scriptResources": {
+        "sp-page-context": {
+          "type": "path",
+          "path": "dist/sp-page-context.js"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@ms/sp-telemetry": {
+          "type": "component",
+          "version": "0.2.2",
+          "id": "8217e442-8ed3-41fd-957d-b112e841286a"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        }
+      }
+    }
+  },
+  {
+    "id": "467dc675-7cc5-4709-8aac-78e3b71bd2f6",
+    "alias": "SPComponentBase",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-component-base",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-component-base/"
+      ],
+      "scriptResources": {
+        "sp-component-base": {
+          "type": "path",
+          "path": "dist/sp-component-base.js"
+        },
+        "@microsoft/decorators": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "f97266fb-ccb7-430e-9384-4124d05295d3"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@ms/sp-telemetry": {
+          "type": "component",
+          "version": "0.2.2",
+          "id": "8217e442-8ed3-41fd-957d-b112e841286a"
+        },
+        "@microsoft/sp-page-context": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "1c4541f7-5c31-41aa-9fa8-fbc9dc14c0a8"
+        }
+      }
+    }
+  },
+  {
+    "id": "974a7777-0990-4136-8fa6-95d80114c2e0",
+    "alias": "SPWebPartBase",
+    "componentType": "Library",
+    "version": "1.3.0",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-webpart-base",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-webpart-base/"
+      ],
+      "scriptResources": {
+        "sp-webpart-base": {
+          "type": "localizedPath",
+          "paths": {},
+          "defaultPath": "dist/sp-webpart-base_en-us.js"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@microsoft/decorators": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "f97266fb-ccb7-430e-9384-4124d05295d3"
+        },
+        "react": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+          "failoverPath": "node_modules/react/dist/react.js"
+        },
+        "@ms/sp-telemetry": {
+          "type": "component",
+          "version": "0.2.2",
+          "id": "8217e442-8ed3-41fd-957d-b112e841286a"
+        },
+        "@microsoft/sp-lodash-subset": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "73e1dc6c-8441-42cc-ad47-4bd3659f8a3a"
+        },
+        "office-ui-fabric-react": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "02a01e42-69ab-403d-8a16-acd128661f8e"
+        },
+        "react-dom": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+          "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        },
+        "@microsoft/sp-component-base": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "467dc675-7cc5-4709-8aac-78e3b71bd2f6"
+        },
+        "@microsoft/sp-loader": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "1c6c9123-7aac-41f3-a376-3caea41ed83f"
+        },
+        "@microsoft/sp-page-context": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "1c4541f7-5c31-41aa-9fa8-fbc9dc14c0a8"
+        }
+      }
+    }
+  },
+  {
+    "id": "0773bd53-a69e-4293-87e6-ba80ea4d614b",
+    "alias": "SPExtensionBase",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-extension-base",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-extension-base/"
+      ],
+      "scriptResources": {
+        "sp-extension-base": {
+          "type": "localizedPath",
+          "defaultPath": "dist/sp-extension-base_en-us.js"
+        },
+        "@ms/sp-telemetry": {
+          "type": "component",
+          "version": "0.2.2",
+          "id": "8217e442-8ed3-41fd-957d-b112e841286a"
+        },
+        "@microsoft/sp-component-base": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "467dc675-7cc5-4709-8aac-78e3b71bd2f6"
+        },
+        "@microsoft/decorators": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "f97266fb-ccb7-430e-9384-4124d05295d3"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@microsoft/sp-loader": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "1c6c9123-7aac-41f3-a376-3caea41ed83f"
+        }
+      }
+    }
+  },
+  {
+    "id": "4df9bb86-ab0a-4aab-ab5f-48bf167048fb",
+    "alias": "SPApplicationBase",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-application-base",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-application-base/"
+      ],
+      "scriptResources": {
+        "sp-application-base": {
+          "type": "path",
+          "path": "dist/sp-application-base.js"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@ms/sp-telemetry": {
+          "type": "component",
+          "version": "0.2.2",
+          "id": "8217e442-8ed3-41fd-957d-b112e841286a"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        },
+        "@microsoft/sp-extension-base": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "0773bd53-a69e-4293-87e6-ba80ea4d614b"
+        },
+        "@microsoft/sp-page-context": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "1c4541f7-5c31-41aa-9fa8-fbc9dc14c0a8"
+        },
+        "@microsoft/sp-loader": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "1c6c9123-7aac-41f3-a376-3caea41ed83f"
+        },
+        "@microsoft/decorators": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "f97266fb-ccb7-430e-9384-4124d05295d3"
+        },
+        "@microsoft/sp-lodash-subset": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "73e1dc6c-8441-42cc-ad47-4bd3659f8a3a"
+        }
+      }
+    }
+  },
+  {
+    "id": "4d5eb168-6729-49a8-aec7-0e397f486b6e",
+    "alias": "SPClientPreview",
+    "componentType": "Library",
+    "version": "1.3.4",
+    "manifestVersion": 2,
+    "loaderConfig": {
+      "entryModuleId": "sp-client-preview",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-client-preview/"
+      ],
+      "scriptResources": {
+        "sp-client-preview": {
+          "type": "path",
+          "path": "dist/sp-client-preview.js"
+        }
+      }
+    }
+  },
+  {
+    "id": "8be81a5c-af38-4bb2-af97-afa3b64dfbed",
+    "alias": "WebPartWorkbench",
+    "componentType": "Application",
+    "version": "1.3.0",
+    "manifestVersion": 2,
+    "title": {
+      "default": "WebpartWorkbench"
+    },
+    "description": {
+      "default": "WebpartWorkbench"
+    },
+    "assemblyId": "5dae53c4-db1e-4d0b-b8b2-88c874dabf83",
+    "preloadComponents": [
+      "8217e442-8ed3-41fd-957d-b112e841286a",
+      "4df9bb86-ab0a-4aab-ab5f-48bf167048fb",
+      "05ed6956-59ad-4aa6-9e4e-b832c96ae87b"
+    ],
+    "preloadOptions": {
+      "shouldPreloadWeb": true,
+      "shouldPreloadUser": true,
+      "shouldPreloadList": false,
+      "shouldPreloadItem": true,
+      "shouldPreloadQuickLaunch": true
+    },
+    "loaderConfig": {
+      "entryModuleId": "sp-webpart-workbench",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/@microsoft/sp-webpart-workbench/"
+      ],
+      "scriptResources": {
+        "sp-webpart-workbench": {
+          "type": "localizedPath",
+          "paths": {},
+          "defaultPath": "dist/sp-webpart-workbench_en-us.js"
+        },
+        "office-ui-fabric-react": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "02a01e42-69ab-403d-8a16-acd128661f8e"
+        },
+        "react": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+          "failoverPath": "node_modules/react/dist/react.js"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@ms/sp-telemetry": {
+          "type": "component",
+          "version": "0.2.2",
+          "id": "8217e442-8ed3-41fd-957d-b112e841286a"
+        },
+        "@microsoft/sp-lodash-subset": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "73e1dc6c-8441-42cc-ad47-4bd3659f8a3a"
+        },
+        "@microsoft/sp-webpart-base": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "974a7777-0990-4136-8fa6-95d80114c2e0"
+        },
+        "react-dom": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+          "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+        },
+        "@microsoft/sp-page-context": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "1c4541f7-5c31-41aa-9fa8-fbc9dc14c0a8"
+        },
+        "@microsoft/office-ui-fabric-react-bundle": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "02a01e42-69ab-403d-8a16-acd128661f8e"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        },
+        "@microsoft/sp-application-base": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "4df9bb86-ab0a-4aab-ab5f-48bf167048fb"
+        },
+        "@microsoft/sp-loader": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "1c6c9123-7aac-41f3-a376-3caea41ed83f"
+        }
+      }
+    }
+  },
+  {
+    "id": "d688e552-a2fb-4904-af1c-c28aa1ee79d3",
+    "alias": "TestWebPart",
+    "componentType": "WebPart",
+    "version": "0.0.1",
+    "manifestVersion": 2,
+    "preconfiguredEntries": [
+      {
+        "groupId": "d688e552-a2fb-4904-af1c-c28aa1ee79d3",
+        "group": {
+          "default": "Under Development"
+        },
+        "title": {
+          "default": "Test"
+        },
+        "description": {
+          "default": "Test description"
+        },
+        "officeFabricIconFontName": "Page",
+        "properties": {
+          "description": "CustomFieldsWebPart",
+          "date": "",
+          "date2": ""
+        }
+      }
+    ],
+    "loaderConfig": {
+      "entryModuleId": "sp-client-custom-fields.bundle",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/node_modules/sp-client-custom-fields/"
+      ],
+      "scriptResources": {
+        "sp-client-custom-fields.bundle": {
+          "type": "path",
+          "path": "dist/sp-client-custom-fields.bundle.js"
+        },
+        "sp-client-custom-fields/strings": {
+          "defaultPath": "lib/loc/en-us.js",
+          "type": "localizedPath"
+        },
+        "testStrings": {
+          "defaultPath": "lib/webparts/test/loc/en-us.js",
+          "type": "localizedPath",
+          "paths": {}
+        },
+        "react": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+          "failoverPath": "node_modules/react/dist/react.js"
+        },
+        "react-dom": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+          "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+        },
+        "@microsoft/sp-webpart-base": {
+          "type": "component",
+          "version": "1.1.1",
+          "id": "974a7777-0990-4136-8fa6-95d80114c2e0"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.1.0",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.1.1",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        },
+        "@microsoft/sp-loader": {
+          "type": "component",
+          "version": "1.1.1",
+          "id": "1c6c9123-7aac-41f3-a376-3caea41ed83f"
+        }
+      }
+    }
+  },
+  {
+    "id": "3f378f3d-733d-34b6-8470-17317bb0b275",
+    "alias": "NewsCarousel",
+    "componentType": "WebPart",
+    "version": "1.0.0",
+    "manifestVersion": 2,
+    "preconfiguredEntries": [
+      {
+        "groupId": "72505c62-b3c0-4cc3-89d8-f2adc8d962a0",
+        "group": {
+          "default": "News Management"
+        },
+        "title": {
+          "default": "News Carousel"
+        },
+        "description": {
+          "default": "Insert a classical, responsive, cool & touch ready News Carousel. With this web part, you can add easily news focus in your SharePoint site. The users can easily navigate in news items, with buttons or with touch."
+        },
+        "officeFabricIconFontName": "News",
+        "properties": {
+          "enableArrows": true,
+          "enableBullets": true,
+          "enablePlayButton": false,
+          "enableFullscreenButton": false,
+          "enableZoomPanel": false,
+          "controlsAlwaysOn": true,
+          "preserveRatio": true,
+          "pauseOnMouseover": false,
+          "carousel": true,
+          "autoplay": true,
+          "speed": 2500,
+          "transition": "slide",
+          "enableProgressIndicator": false,
+          "textPanelEnable": true,
+          "textPanelAlwaysOnTop": true,
+          "textPanelOpacity": 0.4,
+          "items": [
+            {
+              "Title": "Discover the new work station",
+              "Enable": "true",
+              "Description": "Smart, fast & easy: discover the new work station",
+              "Link Url": "#",
+              "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-204611-large.jpeg"
+            },
+            {
+              "Title": "All the Intranet in your Smart Phone",
+              "Enable": "true",
+              "Description": "Stay connected with the Intranet App",
+              "Link Url": "#",
+              "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-large.jpg"
+            },
+            {
+              "Title": "Take a break!",
+              "Enable": "true",
+              "Description": "Discover the new coffees selection",
+              "Link Url": "#",
+              "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-70221-large.jpeg"
+            },
+            {
+              "Title": "Discover the new meeting areas",
+              "Enable": "true",
+              "Description": "New meeting areas available at Level 2",
+              "Link Url": "#",
+              "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/space-desk-workspace-coworking-large.jpg"
+            },
+            {
+              "Title": "New travel policies",
+              "Enable": "true",
+              "Description": "The new travel policies are available",
+              "Link Url": "#",
+              "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-large-car.jpg"
+            },
+            {
+              "Title": "New commons",
+              "Enable": "false",
+              "Description": "View the video of the new commons",
+              "Link Url": "#",
+              "Picture": "https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCF-Sliders/Assets/pexels-photo-58801-large.jpeg"
+            }
+          ]
+        }
+      }
+    ],
+    "loaderConfig": {
+      "entryModuleId": "newscarousel-bundle",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/"
+      ],
+      "scriptResources": {
+        "newscarousel-bundle": {
+          "type": "path",
+          "path": "dist/newscarousel-bundle.js"
+        },
+        "jquery": {
+          "type": "path",
+          "path": "node_modules/jquery/dist/jquery.min.js",
+          "globalName": "jQuery"
+        },
+        "unitegallery": {
+          "type": "path",
+          "path": "src/javascripts/unitegallery/unitegallery.min.js",
+          "globalDependencies": [
+            "jquery"
+          ],
+          "globalName": "jQuery"
+        },
+        "ug-theme-slider": {
+          "type": "path",
+          "path": "src/javascripts/unitegallery/ug-theme-slider.js",
+          "globalDependencies": [
+            "jquery",
+            "unitegallery"
+          ],
+          "globalName": "jQuery"
+        },
+        "sp-client-custom-fields/strings": {
+          "defaultPath": "node_modules/sp-client-custom-fields/lib/loc/en-us.js",
+          "type": "localizedPath",
+          "paths": {
+            "ar-AE": "node_modules/sp-client-custom-fields/lib/loc/ar-ae.js",
+            "ar-DZ": "node_modules/sp-client-custom-fields/lib/loc/ar-dz.js",
+            "ar-EG": "node_modules/sp-client-custom-fields/lib/loc/ar-eg.js",
+            "ar-MA": "node_modules/sp-client-custom-fields/lib/loc/ar-ma.js",
+            "ar-QA": "node_modules/sp-client-custom-fields/lib/loc/ar-qa.js",
+            "ar-SA": "node_modules/sp-client-custom-fields/lib/loc/ar-sa.js",
+            "ar-TN": "node_modules/sp-client-custom-fields/lib/loc/ar-tn.js",
+            "da-DK": "node_modules/sp-client-custom-fields/lib/loc/da-dk.js",
+            "de-AT": "node_modules/sp-client-custom-fields/lib/loc/de-at.js",
+            "de-CH": "node_modules/sp-client-custom-fields/lib/loc/de-ch.js",
+            "de-DE": "node_modules/sp-client-custom-fields/lib/loc/de-de.js",
+            "de-LI": "node_modules/sp-client-custom-fields/lib/loc/de-li.js",
+            "de-LU": "node_modules/sp-client-custom-fields/lib/loc/de-lu.js",
+            "el-GR": "node_modules/sp-client-custom-fields/lib/loc/el-gr.js",
+            "en-AU": "node_modules/sp-client-custom-fields/lib/loc/en-au.js",
+            "en-CA": "node_modules/sp-client-custom-fields/lib/loc/en-ca.js",
+            "en-GB": "node_modules/sp-client-custom-fields/lib/loc/en-gb.js",
+            "en-IE": "node_modules/sp-client-custom-fields/lib/loc/en-ie.js",
+            "en-NZ": "node_modules/sp-client-custom-fields/lib/loc/en-nz.js",
+            "en-US": "node_modules/sp-client-custom-fields/lib/loc/en-us.js",
+            "es-AR": "node_modules/sp-client-custom-fields/lib/loc/es-ar.js",
+            "es-CL": "node_modules/sp-client-custom-fields/lib/loc/es-cl.js",
+            "es-ES": "node_modules/sp-client-custom-fields/lib/loc/es-es.js",
+            "es-MX": "node_modules/sp-client-custom-fields/lib/loc/es-mx.js",
+            "es-PE": "node_modules/sp-client-custom-fields/lib/loc/es-pe.js",
+            "es-UY": "node_modules/sp-client-custom-fields/lib/loc/es-uy.js",
+            "fi-FI": "node_modules/sp-client-custom-fields/lib/loc/fi-fi.js",
+            "fr-BE": "node_modules/sp-client-custom-fields/lib/loc/fr-be.js",
+            "fr-CA": "node_modules/sp-client-custom-fields/lib/loc/fr-ca.js",
+            "fr-CH": "node_modules/sp-client-custom-fields/lib/loc/fr-ch.js",
+            "fr-FR": "node_modules/sp-client-custom-fields/lib/loc/fr-fr.js",
+            "hi-IN": "node_modules/sp-client-custom-fields/lib/loc/hi-in.js",
+            "hu-HU": "node_modules/sp-client-custom-fields/lib/loc/hu-hu.js",
+            "it-CH": "node_modules/sp-client-custom-fields/lib/loc/it-ch.js",
+            "it-IT": "node_modules/sp-client-custom-fields/lib/loc/it-it.js",
+            "ja-JP": "node_modules/sp-client-custom-fields/lib/loc/ja-jp.js",
+            "nb-NO": "node_modules/sp-client-custom-fields/lib/loc/nb-no.js",
+            "nl-NL": "node_modules/sp-client-custom-fields/lib/loc/nl-nl.js",
+            "nn-NO": "node_modules/sp-client-custom-fields/lib/loc/nn-no.js",
+            "pt-BR": "node_modules/sp-client-custom-fields/lib/loc/pt-br.js",
+            "pt-PT": "node_modules/sp-client-custom-fields/lib/loc/pt-pt.js",
+            "ru-RU": "node_modules/sp-client-custom-fields/lib/loc/ru-ru.js",
+            "sv-SE": "node_modules/sp-client-custom-fields/lib/loc/sv-se.js",
+            "th-TH": "node_modules/sp-client-custom-fields/lib/loc/th-th.js",
+            "tr-TR": "node_modules/sp-client-custom-fields/lib/loc/tr-tr.js",
+            "zh-CN": "node_modules/sp-client-custom-fields/lib/loc/zh-cn.js"
+          }
+        },
+        "NewsCarouselStrings": {
+          "defaultPath": "lib/webparts/newsCarousel/loc/en-us.js",
+          "type": "localizedPath",
+          "paths": {
+            "de-DE": "lib/webparts/newsCarousel/loc/de-de.js",
+            "en-US": "lib/webparts/newsCarousel/loc/en-us.js",
+            "es-ES": "lib/webparts/newsCarousel/loc/es-es.js",
+            "fr-FR": "lib/webparts/newsCarousel/loc/fr-fr.js"
+          }
+        },
+        "react": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+          "failoverPath": "node_modules/react/dist/react.js"
+        },
+        "react-dom": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+          "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+        },
+        "@microsoft/sp-webpart-base": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "974a7777-0990-4136-8fa6-95d80114c2e0"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        }
+      }
+    }
+  },
+  {
+    "id": "3f3e8f3d-033d-34b6-8450-173122222275",
+    "alias": "SimpleCarousel",
+    "componentType": "WebPart",
+    "version": "1.0.0",
+    "manifestVersion": 2,
+    "preconfiguredEntries": [
+      {
+        "groupId": "a509fe47-209d-48b7-b27a-6f3841c4033a",
+        "group": {
+          "default": "Images Galleries and Tools"
+        },
+        "title": {
+          "default": "Simple Carousel"
+        },
+        "description": {
+          "default": "The Web Part Simple Carousel allows you to browse a library of images in forms of thumbnails that scroll horizontally."
+        },
+        "officeFabricIconFontName": "Forward",
+        "properties": {
+          "enableArrows": true,
+          "enableBorder": false,
+          "enableIcons": true,
+          "borderColor": "#CCCCCC",
+          "border": 0,
+          "tileDimension": {
+            "width": "160px",
+            "height": "160px"
+          },
+          "pauseOnMouseover": true,
+          "autoplay": true,
+          "speed": 4000,
+          "textPanelEnable": true,
+          "textPanelAlwaysOnTop": false,
+          "textPanelOpacity": 0.4
+        }
+      }
+    ],
+    "loaderConfig": {
+      "entryModuleId": "simple-carousel-bundle",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/"
+      ],
+      "scriptResources": {
+        "simple-carousel-bundle": {
+          "type": "path",
+          "path": "dist/simple-carousel-bundle.js"
+        },
+        "jquery": {
+          "type": "path",
+          "path": "node_modules/jquery/dist/jquery.min.js",
+          "globalName": "jQuery"
+        },
+        "unitegallery": {
+          "type": "path",
+          "path": "src/javascripts/unitegallery/unitegallery.min.js",
+          "globalDependencies": [
+            "jquery"
+          ],
+          "globalName": "jQuery"
+        },
+        "ug-theme-carousel": {
+          "type": "path",
+          "path": "src/javascripts/unitegallery/ug-theme-carousel.js",
+          "globalDependencies": [
+            "jquery",
+            "unitegallery"
+          ],
+          "globalName": "jQuery"
+        },
+        "sp-client-custom-fields/strings": {
+          "defaultPath": "node_modules/sp-client-custom-fields/lib/loc/en-us.js",
+          "type": "localizedPath",
+          "paths": {
+            "ar-AE": "node_modules/sp-client-custom-fields/lib/loc/ar-ae.js",
+            "ar-DZ": "node_modules/sp-client-custom-fields/lib/loc/ar-dz.js",
+            "ar-EG": "node_modules/sp-client-custom-fields/lib/loc/ar-eg.js",
+            "ar-MA": "node_modules/sp-client-custom-fields/lib/loc/ar-ma.js",
+            "ar-QA": "node_modules/sp-client-custom-fields/lib/loc/ar-qa.js",
+            "ar-SA": "node_modules/sp-client-custom-fields/lib/loc/ar-sa.js",
+            "ar-TN": "node_modules/sp-client-custom-fields/lib/loc/ar-tn.js",
+            "da-DK": "node_modules/sp-client-custom-fields/lib/loc/da-dk.js",
+            "de-AT": "node_modules/sp-client-custom-fields/lib/loc/de-at.js",
+            "de-CH": "node_modules/sp-client-custom-fields/lib/loc/de-ch.js",
+            "de-DE": "node_modules/sp-client-custom-fields/lib/loc/de-de.js",
+            "de-LI": "node_modules/sp-client-custom-fields/lib/loc/de-li.js",
+            "de-LU": "node_modules/sp-client-custom-fields/lib/loc/de-lu.js",
+            "el-GR": "node_modules/sp-client-custom-fields/lib/loc/el-gr.js",
+            "en-AU": "node_modules/sp-client-custom-fields/lib/loc/en-au.js",
+            "en-CA": "node_modules/sp-client-custom-fields/lib/loc/en-ca.js",
+            "en-GB": "node_modules/sp-client-custom-fields/lib/loc/en-gb.js",
+            "en-IE": "node_modules/sp-client-custom-fields/lib/loc/en-ie.js",
+            "en-NZ": "node_modules/sp-client-custom-fields/lib/loc/en-nz.js",
+            "en-US": "node_modules/sp-client-custom-fields/lib/loc/en-us.js",
+            "es-AR": "node_modules/sp-client-custom-fields/lib/loc/es-ar.js",
+            "es-CL": "node_modules/sp-client-custom-fields/lib/loc/es-cl.js",
+            "es-ES": "node_modules/sp-client-custom-fields/lib/loc/es-es.js",
+            "es-MX": "node_modules/sp-client-custom-fields/lib/loc/es-mx.js",
+            "es-PE": "node_modules/sp-client-custom-fields/lib/loc/es-pe.js",
+            "es-UY": "node_modules/sp-client-custom-fields/lib/loc/es-uy.js",
+            "fi-FI": "node_modules/sp-client-custom-fields/lib/loc/fi-fi.js",
+            "fr-BE": "node_modules/sp-client-custom-fields/lib/loc/fr-be.js",
+            "fr-CA": "node_modules/sp-client-custom-fields/lib/loc/fr-ca.js",
+            "fr-CH": "node_modules/sp-client-custom-fields/lib/loc/fr-ch.js",
+            "fr-FR": "node_modules/sp-client-custom-fields/lib/loc/fr-fr.js",
+            "hi-IN": "node_modules/sp-client-custom-fields/lib/loc/hi-in.js",
+            "hu-HU": "node_modules/sp-client-custom-fields/lib/loc/hu-hu.js",
+            "it-CH": "node_modules/sp-client-custom-fields/lib/loc/it-ch.js",
+            "it-IT": "node_modules/sp-client-custom-fields/lib/loc/it-it.js",
+            "ja-JP": "node_modules/sp-client-custom-fields/lib/loc/ja-jp.js",
+            "nb-NO": "node_modules/sp-client-custom-fields/lib/loc/nb-no.js",
+            "nl-NL": "node_modules/sp-client-custom-fields/lib/loc/nl-nl.js",
+            "nn-NO": "node_modules/sp-client-custom-fields/lib/loc/nn-no.js",
+            "pt-BR": "node_modules/sp-client-custom-fields/lib/loc/pt-br.js",
+            "pt-PT": "node_modules/sp-client-custom-fields/lib/loc/pt-pt.js",
+            "ru-RU": "node_modules/sp-client-custom-fields/lib/loc/ru-ru.js",
+            "sv-SE": "node_modules/sp-client-custom-fields/lib/loc/sv-se.js",
+            "th-TH": "node_modules/sp-client-custom-fields/lib/loc/th-th.js",
+            "tr-TR": "node_modules/sp-client-custom-fields/lib/loc/tr-tr.js",
+            "zh-CN": "node_modules/sp-client-custom-fields/lib/loc/zh-cn.js"
+          }
+        },
+        "simpleCarouselStrings": {
+          "defaultPath": "lib/webparts/simpleCarousel/loc/en-us.js",
+          "type": "localizedPath",
+          "paths": {
+            "de-DE": "lib/webparts/simpleCarousel/loc/de-de.js",
+            "en-US": "lib/webparts/simpleCarousel/loc/en-us.js",
+            "es-ES": "lib/webparts/simpleCarousel/loc/es-es.js",
+            "fr-FR": "lib/webparts/simpleCarousel/loc/fr-fr.js"
+          }
+        },
+        "react": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+          "failoverPath": "node_modules/react/dist/react.js"
+        },
+        "react-dom": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+          "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+        },
+        "@microsoft/sp-webpart-base": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "974a7777-0990-4136-8fa6-95d80114c2e0"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        }
+      }
+    }
+  },
+  {
+    "id": "3f3e8f3d-033d-34b6-8450-17312bb0b275",
+    "alias": "SliderGallery",
+    "componentType": "WebPart",
+    "version": "1.0.0",
+    "manifestVersion": 2,
+    "preconfiguredEntries": [
+      {
+        "groupId": "a509fe47-209d-48b7-b27a-6f3841c4033a",
+        "group": {
+          "default": "Images Galleries and Tools"
+        },
+        "title": {
+          "default": "Slider Gallery"
+        },
+        "description": {
+          "default": "This Web Part allows you to view your photo galleries in the form of a slider between the images. Photos automatically scroll with the effect of your choice. The user can click on the arrows or use the touch features to navigate through the images. On click, the image is opened in full screen."
+        },
+        "officeFabricIconFontName": "Play",
+        "properties": {
+          "enableArrows": true,
+          "enableBullets": true,
+          "enablePlayButton": false,
+          "enableFullscreenButton": false,
+          "enableZoomPanel": false,
+          "controlsAlwaysOn": false,
+          "preserveRatio": true,
+          "pauseOnMouseover": true,
+          "carousel": true,
+          "autoplay": true,
+          "speed": 4000,
+          "transition": "slide",
+          "enableProgressIndicator": true,
+          "textPanelEnable": true,
+          "textPanelAlwaysOnTop": true,
+          "textPanelOpacity": 0.4
+        }
+      }
+    ],
+    "loaderConfig": {
+      "entryModuleId": "slider-gallery-bundle",
+      "internalModuleBaseUrls": [
+        "https://localhost:4321/"
+      ],
+      "scriptResources": {
+        "slider-gallery-bundle": {
+          "type": "path",
+          "path": "dist/slider-gallery-bundle.js"
+        },
+        "jquery": {
+          "type": "path",
+          "path": "node_modules/jquery/dist/jquery.min.js",
+          "globalName": "jQuery"
+        },
+        "unitegallery": {
+          "type": "path",
+          "path": "src/javascripts/unitegallery/unitegallery.min.js",
+          "globalDependencies": [
+            "jquery"
+          ],
+          "globalName": "jQuery"
+        },
+        "ug-theme-slider": {
+          "type": "path",
+          "path": "src/javascripts/unitegallery/ug-theme-slider.js",
+          "globalDependencies": [
+            "jquery",
+            "unitegallery"
+          ],
+          "globalName": "jQuery"
+        },
+        "sp-client-custom-fields/strings": {
+          "defaultPath": "node_modules/sp-client-custom-fields/lib/loc/en-us.js",
+          "type": "localizedPath",
+          "paths": {
+            "ar-AE": "node_modules/sp-client-custom-fields/lib/loc/ar-ae.js",
+            "ar-DZ": "node_modules/sp-client-custom-fields/lib/loc/ar-dz.js",
+            "ar-EG": "node_modules/sp-client-custom-fields/lib/loc/ar-eg.js",
+            "ar-MA": "node_modules/sp-client-custom-fields/lib/loc/ar-ma.js",
+            "ar-QA": "node_modules/sp-client-custom-fields/lib/loc/ar-qa.js",
+            "ar-SA": "node_modules/sp-client-custom-fields/lib/loc/ar-sa.js",
+            "ar-TN": "node_modules/sp-client-custom-fields/lib/loc/ar-tn.js",
+            "da-DK": "node_modules/sp-client-custom-fields/lib/loc/da-dk.js",
+            "de-AT": "node_modules/sp-client-custom-fields/lib/loc/de-at.js",
+            "de-CH": "node_modules/sp-client-custom-fields/lib/loc/de-ch.js",
+            "de-DE": "node_modules/sp-client-custom-fields/lib/loc/de-de.js",
+            "de-LI": "node_modules/sp-client-custom-fields/lib/loc/de-li.js",
+            "de-LU": "node_modules/sp-client-custom-fields/lib/loc/de-lu.js",
+            "el-GR": "node_modules/sp-client-custom-fields/lib/loc/el-gr.js",
+            "en-AU": "node_modules/sp-client-custom-fields/lib/loc/en-au.js",
+            "en-CA": "node_modules/sp-client-custom-fields/lib/loc/en-ca.js",
+            "en-GB": "node_modules/sp-client-custom-fields/lib/loc/en-gb.js",
+            "en-IE": "node_modules/sp-client-custom-fields/lib/loc/en-ie.js",
+            "en-NZ": "node_modules/sp-client-custom-fields/lib/loc/en-nz.js",
+            "en-US": "node_modules/sp-client-custom-fields/lib/loc/en-us.js",
+            "es-AR": "node_modules/sp-client-custom-fields/lib/loc/es-ar.js",
+            "es-CL": "node_modules/sp-client-custom-fields/lib/loc/es-cl.js",
+            "es-ES": "node_modules/sp-client-custom-fields/lib/loc/es-es.js",
+            "es-MX": "node_modules/sp-client-custom-fields/lib/loc/es-mx.js",
+            "es-PE": "node_modules/sp-client-custom-fields/lib/loc/es-pe.js",
+            "es-UY": "node_modules/sp-client-custom-fields/lib/loc/es-uy.js",
+            "fi-FI": "node_modules/sp-client-custom-fields/lib/loc/fi-fi.js",
+            "fr-BE": "node_modules/sp-client-custom-fields/lib/loc/fr-be.js",
+            "fr-CA": "node_modules/sp-client-custom-fields/lib/loc/fr-ca.js",
+            "fr-CH": "node_modules/sp-client-custom-fields/lib/loc/fr-ch.js",
+            "fr-FR": "node_modules/sp-client-custom-fields/lib/loc/fr-fr.js",
+            "hi-IN": "node_modules/sp-client-custom-fields/lib/loc/hi-in.js",
+            "hu-HU": "node_modules/sp-client-custom-fields/lib/loc/hu-hu.js",
+            "it-CH": "node_modules/sp-client-custom-fields/lib/loc/it-ch.js",
+            "it-IT": "node_modules/sp-client-custom-fields/lib/loc/it-it.js",
+            "ja-JP": "node_modules/sp-client-custom-fields/lib/loc/ja-jp.js",
+            "nb-NO": "node_modules/sp-client-custom-fields/lib/loc/nb-no.js",
+            "nl-NL": "node_modules/sp-client-custom-fields/lib/loc/nl-nl.js",
+            "nn-NO": "node_modules/sp-client-custom-fields/lib/loc/nn-no.js",
+            "pt-BR": "node_modules/sp-client-custom-fields/lib/loc/pt-br.js",
+            "pt-PT": "node_modules/sp-client-custom-fields/lib/loc/pt-pt.js",
+            "ru-RU": "node_modules/sp-client-custom-fields/lib/loc/ru-ru.js",
+            "sv-SE": "node_modules/sp-client-custom-fields/lib/loc/sv-se.js",
+            "th-TH": "node_modules/sp-client-custom-fields/lib/loc/th-th.js",
+            "tr-TR": "node_modules/sp-client-custom-fields/lib/loc/tr-tr.js",
+            "zh-CN": "node_modules/sp-client-custom-fields/lib/loc/zh-cn.js"
+          }
+        },
+        "sliderGalleryStrings": {
+          "defaultPath": "lib/webparts/sliderGallery/loc/en-us.js",
+          "type": "localizedPath",
+          "paths": {
+            "de-DE": "lib/webparts/sliderGallery/loc/de-de.js",
+            "en-US": "lib/webparts/sliderGallery/loc/en-us.js",
+            "es-ES": "lib/webparts/sliderGallery/loc/es-es.js",
+            "fr-FR": "lib/webparts/sliderGallery/loc/fr-fr.js"
+          }
+        },
+        "react": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+          "failoverPath": "node_modules/react/dist/react.js"
+        },
+        "react-dom": {
+          "type": "component",
+          "version": "15.4.2",
+          "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+          "failoverPath": "node_modules/react-dom/dist/react-dom.js"
+        },
+        "@microsoft/sp-webpart-base": {
+          "type": "component",
+          "version": "1.3.0",
+          "id": "974a7777-0990-4136-8fa6-95d80114c2e0"
+        },
+        "@microsoft/sp-core-library": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "7263c7d0-1d6a-45ec-8d85-d4d1d234171b"
+        },
+        "@microsoft/sp-http": {
+          "type": "component",
+          "version": "1.3.4",
+          "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6"
+        }
+      }
+    }
+  }
+]
