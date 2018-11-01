@@ -3,7 +3,7 @@
   "solution": {
     "name": "dhcf-faq",
     "id": "7f1b92c2-8130-4001-a93f-a5080fb6f5ec",
-    "version": "1.0.2.5",
+    "version": "1.0.3.4",
     "includeClientSideAssets": true
   },
   "paths": {

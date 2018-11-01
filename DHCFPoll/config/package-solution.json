@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "dhcf-poll",
+    "id": "fb881437-ead0-4e52-ac06-7781ca49c9f3",
+    "version": "1.0.2.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/dhcf-poll.sppkg"
+  }
+}

@@ -4,4 +4,5 @@ export interface IEmployeeDirectoryWebPartProps {
   exclude: string;
   sortBy: string;
   applycss: boolean;
+  useGraph: boolean;
 }

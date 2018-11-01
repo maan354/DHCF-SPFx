@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.6.0",
+    "libraryName": "dhcf-poll",
+    "libraryId": "fb881437-ead0-4e52-ac06-7781ca49c9f3",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}

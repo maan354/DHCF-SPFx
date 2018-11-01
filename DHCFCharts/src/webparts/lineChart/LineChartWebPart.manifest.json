@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "802fdd09-ea24-4929-bf84-be665dd89420",
+  "alias": "LineChart",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "4aca9e90-eff5-4fa1-bac7-728f5f157b66",
+    "group": { "default": "Charts, Graphs and Maps" },
+    "title": { "default": "Line Chart" },
+    "description": { "default": "A simple and effective Web Part to generate a line chart in a page. You can choose the points on the line, set the line and fill, color, etc. Convenient to view financial results for example." },
+    "officeFabricIconFontName": "Chart",
+    "properties": {
+        "responsive": false,
+        "horizontal": true,
+        "xAxesEnable": true,
+        "yAxesEnable": true,
+        "dimension": {
+          "width": "450px",
+          "height": "450px"
+        },
+        "position": "top",
+        "title": "Months Line Chart",
+        "titleEnable": true,
+        "titleColor": "#666",
+        "titleSize": "12px",
+        "pointStyle": "circle",
+        "fill": true,
+        "lineTension": 0.25,
+        "showLine": true,
+        "steppedLine": false,
+        "fillColor": "rgba(75, 192, 192, 0.2)",
+        "items": [
+          { "Label": "January", "Value": 65},
+          { "Label": "February", "Value": 59},
+          { "Label": "March", "Value": 80},
+          { "Label": "April", "Value": 81},
+          { "Label": "May", "Value": 56},
+          { "Label": "June", "Value": 55}
+        ]
+    }
+  }]
+}

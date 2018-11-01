@@ -6,7 +6,9 @@ import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
   PropertyPaneSlider,
-  PropertyPaneToggle
+  PropertyPaneToggle,
+  PropertyPaneDropdown,
+  IPropertyPaneDropdownOption
 } from '@microsoft/sp-webpart-base';
 
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
@@ -23,6 +25,18 @@ export interface IDhcfSpotlightWebPartProps {
   description: string;
   maxitems: number;
   useProfPics: boolean;
+  showAll: boolean;
+  ItemsDropDown: string;
+}
+
+export interface ResponceDetails {
+  Title: string;
+  id: string; 
+}
+
+export interface ResponceCollection {
+  value: ResponceDetails[];  
+  length: Number;
 }
 
 
@@ -37,9 +51,25 @@ export default class DhcfSpotlightWebPart extends BaseClientSideWebPart<IDhcfSpo
 
   private myData = [];
 
+  private Q_Options: IPropertyPaneDropdownOption[] = [];
+
+
   public render(): void {
+
+    if (!this.properties.showAll) {    
+      this.getFields().then(responce => {
+        this.Q_Options = this._getDropDownCollection(responce, 'Admin', 'Admin');
+        this.context.propertyPane.refresh();
+      })}
     
-    this.getListData().then(res => {
+    let select;
+    
+    if (this.properties.showAll)
+      select = null;
+    else       
+      select = this.properties.ItemsDropDown || null 
+
+    this.getListData(select).then(res => {
 
       this.myData = res.value;
       console.log(this.myData);
@@ -55,13 +85,46 @@ export default class DhcfSpotlightWebPart extends BaseClientSideWebPart<IDhcfSpo
     }); 
   }
 
-  private getListData() {
+  private getListData(select) {
+    let url;
     let today = new Date();
+    if (select === null) {
+      url = this.context.pageContext.web.absoluteUrl + 
+      `/_api/web/lists/getByTitle('Spotlight')/items?`+
+        `$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,until0&`+
+        `$expand=Employee&$orderby=order0 asc &`+
+        `$filter=until0 ge datetime'`  + today.toISOString() + `'`;
+      }
+    else {
+      url = this.context.pageContext.web.absoluteUrl + 
+      `/_api/web/lists/getByTitle('Spotlight')/items?` +
+        `$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,until0,Admin/Title&` +
+        `$expand=Employee,Admin&$orderby=order0 asc &`+
+        `$filter=(until0 ge datetime'`  + today.toISOString() + `') and (Admin/Title eq '`+ this.properties.ItemsDropDown +`')`;
+      }
+    
     //let url = this.context.pageContext.web.absoluteUrl + `/intranet/_api/web/lists/getByTitle('EmployeeSpotlight')/items?$select=Title,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description,Until&$expand=Employee&$filter=Until ge datetime ` + today.toISOString() + `&$orderby=order0 asc`;
-    let url = this.context.pageContext.web.absoluteUrl + `/_api/web/lists/getByTitle('Spotlight')/items?$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,until0&$expand=Employee&$orderby=order0 asc &$filter=until0 ge datetime'`  + today.toISOString() + `'`;
+    //url = this.context.pageContext.web.absoluteUrl + `/_api/web/lists/getByTitle('Spotlight')/items?$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,until0&$expand=Employee&$orderby=order0 asc &$filter=until0 ge datetime'`  + today.toISOString() + `'`;
     return this.context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {     
       return response.json();
     });
+  }
+
+  private getFields(): Promise<any> {
+    let url:string = this.context.pageContext.site.serverRelativeUrl + `/_api/web/lists/getByTitle('Spotlight')/items?$select=Admin/Title&$expand=Admin&$orderby=Title%20asc`;
+    return this.context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
+      return response.json();
+    });
+  }
+
+  private _getDropDownCollection(response: ResponceCollection, key: string, text: string): IPropertyPaneDropdownOption[] {
+    var dropdownOptions: IPropertyPaneDropdownOption[] = [];
+    for (var itemKey in response.value) {
+        if (response.value[itemKey][text])
+        dropdownOptions.push({ key: response.value[itemKey][key].Title, text: response.value[itemKey][text].Title});
+    }
+    console.log(dropdownOptions)
+    return dropdownOptions;
   }
 
   protected onDispose(): void {
@@ -103,7 +166,17 @@ export default class DhcfSpotlightWebPart extends BaseClientSideWebPart<IDhcfSpo
                 PropertyPaneToggle('defaultList', {
                   label: 'Use default list?',
                   disabled: true
-                })
+                }),
+                PropertyPaneToggle('showAll', {
+                  label: "Show All",
+                  offText: "Off",
+                  onText: "On",
+                }),                
+                PropertyPaneDropdown('ItemsDropDown',{ 
+                  label: "Select Item to display",  
+                  options: this.Q_Options,  
+                  disabled: this.properties.showAll,
+                }),
               ]
 
             }

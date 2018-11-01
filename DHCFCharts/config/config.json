@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/pieChart/PieChartWebPart.js",
+      "manifest": "./src/webparts/pieChart/PieChartWebPart.manifest.json",
+      "outputPath": "./dist/pieChart.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/barChart/BarChartWebPart.js",
+      "manifest": "./src/webparts/barChart/BarChartWebPart.manifest.json",
+      "outputPath": "./dist/barChart.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/polarChart/PolarChartWebPart.js",
+      "manifest": "./src/webparts/polarChart/PolarChartWebPart.manifest.json",
+      "outputPath": "./dist/polarChart.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/lineChart/LineChartWebPart.js",
+      "manifest": "./src/webparts/lineChart/LineChartWebPart.manifest.json",
+      "outputPath": "./dist/lineChart.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/radarChart/RadarChartWebPart.js",
+      "manifest": "./src/webparts/radarChart/RadarChartWebPart.manifest.json",
+      "outputPath": "./dist/radarChart.bundle.js"
+    }
+  ],
+  "externals": {
+    "sp-client-custom-fields": "node_modules/sp-client-custom-fields/dist/sp-client-custom-fields.bundle.js",
+    "jquery": {
+      "path": "node_modules/jquery/dist/jquery.min.js",
+      "globalName": "jQuery"
+    },
+    "chartjs": {
+      "path": "src/javascripts/chartjs/Chart.min.js",
+      "globalName": "Chart"
+    },
+    "jqueryui": "node_modules/jqueryui/jquery-ui.js"
+  },
+  "localizedResources": {
+    "sp-client-custom-fields/strings": "../node_modules/sp-client-custom-fields/lib/loc/{locale}.js",
+    "PieChartStrings": "webparts/pieChart/loc/en-us.js",
+    "BarChartStrings": "webparts/barChart/loc/en-us.js",
+    "PolarChartStrings": "webparts/polarChart/loc/en-us.js",
+    "LineChartStrings": "webparts/lineChart/loc/en-us.js",
+    "RadarChartStrings": "webparts/radarChart/loc/en-us.js"
+  }
+}

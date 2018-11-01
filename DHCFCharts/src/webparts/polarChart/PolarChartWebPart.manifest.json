@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "4aca9e90-eff5-4fa1-bac7-728f5f157b66",
+  "alias": "PolarChart",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "7a7091d9-d176-450b-a04f-9fa48ca1981b",
+    "group": { "default": "Charts, Graphs and Maps" },
+    "title": { "default": "Polar Chart" },
+    "description": { "default": "A web part to insert a polar chart, modify the data and the render. Very easy & quick to use in a SharePoint page." },
+    "officeFabricIconFontName": "MarketDown",
+    "properties": {
+        "responsive": false,
+        "dimension": {
+          "width": "450px",
+          "height": "450px"
+        },
+        "animateRotate": true,
+        "animateScale": false,
+        "position": "top",
+        "title": "Colors Polar Chart",
+        "titleEnable": true,
+        "titleColor": "#666",
+        "titleSize": "12px",
+        "legendEnable": true,
+        "legendPosition": "top",
+        "legendColor": "#666",
+        "legendSize": "12px",
+        "items": [
+          { "Label": "Red", "Value": 11, "Color": "#FF6384", "Hover Color": "#FF6384"},
+          { "Label": "Green", "Value": 16, "Color": "#4BC0C0", "Hover Color": "#4BC0C0"},
+          { "Label": "Yellow", "Value": 7, "Color": "#FFCE56", "Hover Color": "#FFCE56"},
+          { "Label": "Grey", "Value": 3, "Color": "#E7E9ED", "Hover Color": "#E7E9ED"},
+          { "Label": "Blue", "Value": 14, "Color": "#36A2EB", "Hover Color": "#36A2EB"}
+        ]
+    }
+  }]
+}

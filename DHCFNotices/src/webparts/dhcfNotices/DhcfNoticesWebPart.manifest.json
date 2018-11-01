@@ -18,9 +18,10 @@
     "group": { "default": "Other" },
     "title": { "default": "DHCF-Notices" },
     "description": { "default": "DHCF-Notices description" },
-    "officeFabricIconFontName": "Page",
+    "officeFabricIconFontName": "NotePinned",
     "properties": {
-      "description": "DHCF-Notices"
+      "description": "DHCF-Notices",
+      "showAll": true
     }
   }]
 }

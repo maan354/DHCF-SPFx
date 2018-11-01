@@ -20,7 +20,9 @@
     "description": { "default": "DHCFfaq description" },
     "officeFabricIconFontName": "ActivityFeed",
     "properties": {
-      "description": "DHCFfaq"
+      "description": "DHCFfaq",
+      "featured": "false",
+      "adjust": "true"
     }
   }]
 }

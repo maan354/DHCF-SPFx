@@ -18,9 +18,11 @@
     "group": { "default": "Other" },
     "title": { "default": "DHCF-News" },
     "description": { "default": "DHCF-News description" },
-    "officeFabricIconFontName": "Page",
+    "officeFabricIconFontName": "RenewalCurrent",
     "properties": {
-      "description": "DHCF-News"
+      "description": "DHCF-News",
+      "selected_list": "783c7341-e0ce-46de-b45e-69cdfe1359f9",
+      "showAll": true
     }
   }]
 }

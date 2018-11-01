@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "6510e024-b86d-479b-8a75-39b439bfc34d",
+  "alias": "PieChart",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "4aca9e90-eff5-4fa1-bac7-728f5f157b66",
+    "group": { "default": "Charts, Graphs and Maps" },
+    "title": { "default": "Pie Chart" },
+    "description": { "default": "Insert a Pie chart with a few clicks in your SharePoint page. You can edit the data, choose values, colors, legends and all the graphics. You can generate graphs to fixed sizes or responsive mode." },
+    "officeFabricIconFontName": "PieDouble",
+    "properties": {
+        "responsive": false,
+        "dimension": {
+          "width": "400px",
+          "height": "400px"
+        },
+        "cutoutPercentage": 0,
+        "animateRotate": true,
+        "animateScale": false,
+        "position": "top",
+        "title": "Colors Pie",
+        "titleEnable": true,
+        "titleColor": "#666",
+        "titleSize": "12px",
+        "legendEnable": true,
+        "legendPosition": "top",
+        "legendColor": "#666",
+        "legendSize": "12px",
+
+        "items": [
+          { "Label": "Red", "Value": 300, "Color": "#FF6384", "Hover Color": "#FF6384"},
+          { "Label": "Blue", "Value": 50, "Color": "#36A2EB", "Hover Color": "#36A2EB"},
+          { "Label": "Yellow", "Value": 100, "Color": "#FFCE56", "Hover Color": "#FFCE56"}
+        ]
+    }
+  }]
+}

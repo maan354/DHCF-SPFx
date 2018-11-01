@@ -1,0 +1,44 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "fd2d0897-88b8-42a8-a825-1ec3bf68277f",
+  "alias": "RadarChart",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "4aca9e90-eff5-4fa1-bac7-728f5f157b66",
+    "group": { "default": "Charts, Graphs and Maps" },
+    "title": { "default": "Radar Chart" },
+    "description": { "default": "Offer elegant and alternative views to your data with this Web part. With the radar chart, you can for example easily see comparisons between data." },
+    "officeFabricIconFontName": "Starburst",
+    "properties": {
+        "responsive": false,
+        "horizontal": true,
+        "xAxesEnable": true,
+        "yAxesEnable": true,
+        "dimension": {
+          "width": "450px",
+          "height": "450px"
+        },
+        "position": "top",
+        "title": "Months Radar",
+        "titleEnable": true,
+        "titleColor": "#666",
+        "titleSize": "12px",
+        "pointStyle": "circle",
+        "fill": true,
+        "lineTension": 0.05,
+        "fillColor": "rgba(75, 192, 192, 0.3)",
+        "items": [
+          { "Label": "January", "Value": 65},
+          { "Label": "February", "Value": 59},
+          { "Label": "March", "Value": 90},
+          { "Label": "April", "Value": 81},
+          { "Label": "May", "Value": 56},
+          { "Label": "June", "Value": 55}
+        ]
+    }
+  }]
+}

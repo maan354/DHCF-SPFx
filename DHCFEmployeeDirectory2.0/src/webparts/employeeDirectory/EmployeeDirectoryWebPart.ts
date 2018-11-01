@@ -62,7 +62,8 @@ export default class EmployeeDirectoryWebPart extends BaseClientSideWebPart<IEmp
           this.properties.title = value;
         },
         context: this.context,
-        graphClient: this.graphClient
+        graphClient: this.graphClient,
+        useGraph: this.properties.useGraph
       }
     );
 
@@ -109,7 +110,12 @@ export default class EmployeeDirectoryWebPart extends BaseClientSideWebPart<IEmp
                     { key: 'JobTitle', text: 'Job Title' },
                     { key: 'Office', text: 'Office' }
                   ]
-                })
+                }),
+                PropertyPaneToggle('useGraph', {
+                  label: "Use Graph API?",
+                  offText: "No",
+                  onText: "Yes",
+                }),
 
               ]
             }

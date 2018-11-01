@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "dhcf-poll-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/dhcfPoll/DhcfPollWebPart.js",
+          "manifest": "./src/webparts/dhcfPoll/DhcfPollWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "chartjs": {
+      "path": "src/javascripts/chartjs/Chart.min.js",
+      "globalName": "Chart"
+    }
+  },
+  "localizedResources": {
+    "DhcfPollWebPartStrings": "lib/webparts/dhcfPoll/loc/{locale}.js"
+  }
+}

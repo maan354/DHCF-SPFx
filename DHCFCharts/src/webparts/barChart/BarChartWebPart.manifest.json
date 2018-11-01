@@ -1,0 +1,41 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "28d3013b-a43a-4869-ac4d-48cd421d2101",
+  "alias": "BarChart",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "4aca9e90-eff5-4fa1-bac7-728f5f157b66",
+    "group": { "default": "Charts, Graphs and Maps" },
+    "title": { "default": "Bar Chart" },
+    "description": { "default": "To generate a chart in the form of a vertical or horizontal diagram. You can simply edit the data of the chart, change the values, labels, or colors. Create simply and effectively elegant and effective dashboards for your employees." },
+    "officeFabricIconFontName": "BarChart4",
+    "properties": {
+        "responsive": false,
+        "horizontal": true,
+        "xAxesEnable": true,
+        "yAxesEnable": true,
+        "dimension": {
+          "width": "450px",
+          "height": "450px"
+        },
+        "position": "top",
+        "title": "Months Bar Chart",
+        "titleEnable": true,
+        "titleColor": "#666",
+        "titleSize": "12px",
+
+        "items": [
+          { "Label": "January", "Value": 65, "Color": "rgba(255, 99, 132, 0.2)", "Hover Color": "rgba(255,99,132,1)"},
+          { "Label": "February", "Value": 59, "Color": "rgba(54, 162, 235, 0.2)", "Hover Color": "rgba(54, 162, 235, 1)"},
+          { "Label": "March", "Value": 80, "Color": "rgba(255, 206, 86, 0.2)", "Hover Color": "rgba(255, 206, 86, 1)"},
+          { "Label": "April", "Value": 81, "Color": "rgba(75, 192, 192, 0.2)", "Hover Color": "rgba(75, 192, 192, 1)"},
+          { "Label": "May", "Value": 56, "Color": "rgba(153, 102, 255, 0.2)", "Hover Color": "rgba(153, 102, 255, 1)"},
+          { "Label": "June", "Value": 55, "Color": "rgba(255, 159, 64, 0.2)", "Hover Color": "rgba(255, 159, 64, 1)"}
+        ]
+    }
+  }]
+}

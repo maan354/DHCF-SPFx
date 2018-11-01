@@ -68,7 +68,8 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
           });
         })
         .catch((error: any) => console.error(error));
-      // this.getGraphUsers();
+       if (this.props.useGraph) 
+          this.getGraphUsers();
     });
 
   }

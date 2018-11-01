@@ -9,4 +9,5 @@ export interface IEmployeeDirectoryProps {
   displayMode: DisplayMode;
   context: IWebPartContext;
   graphClient: any;
+  useGraph: boolean;
 }

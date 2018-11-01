@@ -3,13 +3,13 @@
   "solution": {
     "name": "DHCF-Spotlight",
     "id": "364e5926-b3f2-42a7-8a4f-f15fe9a1914f",
-    "version": "1.0.4.1",
+    "version": "1.0.4.2",
     "includeClientSideAssets": true,
     "features": [{
       "title": "dhcf-spotlight-solution",
       "description": "dhcf-spotlight-solution",
       "id": "523fe887-ced5-4036-b564-8dad5c777e24",
-      "version": "1.0.1.0",
+      "version": "1.0.2.0",
       "assets": {        
         "elementManifests": [
           "elements.xml"

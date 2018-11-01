@@ -18,12 +18,13 @@
     "group": { "default": "Other" },
     "title": { "default": "dhcf-spotlight" },
     "description": { "default": "dhcf-spotlight description" },
-    "officeFabricIconFontName": "Page",
+    "officeFabricIconFontName": "ReminderPerson",
     "properties": {
       "description": "dhcf-spotlight",
       "maxitems": 3,
       "useProfPics": true,
-      "defaultList": true
+      "defaultList": true,
+      "showAll": true
 
     }
   }]

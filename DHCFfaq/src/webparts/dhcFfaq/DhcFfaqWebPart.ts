@@ -5,7 +5,9 @@ import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
-  PropertyPaneToggle
+  PropertyPaneToggle,
+  IPropertyPaneDropdownOption,
+  PropertyPaneDropdown
 } from '@microsoft/sp-webpart-base';
 
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
@@ -21,9 +23,23 @@ export interface IDhcFfaqWebPartProps {
   description: string;
   applycss: boolean;
   query: string;
+  featured: boolean;
+  adjust: boolean;
+}
+
+export interface ResponceDetails {
+  Title: string;
+  id: string;
+}
+
+export interface ResponceCollection {
+  value: ResponceDetails[];  
+  length: Number;
 }
 
 export default class DhcFfaqWebPart extends BaseClientSideWebPart<IDhcFfaqWebPartProps> {
+
+  private Q_Options: IPropertyPaneDropdownOption[] = [];
 
   public render(): void {
 
@@ -34,21 +50,38 @@ export default class DhcFfaqWebPart extends BaseClientSideWebPart<IDhcFfaqWebPar
     }
     else console.log ("CSS not applied");
 
+    if (this.properties.featured) {
+      this.getFAQs().then(responce => {
+        this.Q_Options = this._getDropDownCollection(responce, 'Title_x0020__x0028_Question_x002', 'Title_x0020__x0028_Question_x002');
+        this.context.propertyPane.refresh();
+      })
+    }
+
     const element: React.ReactElement<IDhcFfaqProps > = React.createElement(
       DhcFfaq,
       {
-        description: this.properties.description,
+        allProps: this.properties,
         context: this.context
       }
     );
 
-    
-    console.log(this.properties.query);
-
     ReactDom.render(element, this.domElement);
   }
 
-  
+  private getFAQs(): Promise<any> {
+    let url:string = this.context.pageContext.site.serverRelativeUrl + `/_api/lists/GetByTitle('FAQ')/items?$select=Title_x0020__x0028_Question_x002&$orderby=Title_x0020__x0028_Question_x002 asc`;
+    return this.context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
+      return response.json();
+    });
+  }
+
+  private _getDropDownCollection(response: ResponceCollection, key: string, text: string): IPropertyPaneDropdownOption[] {
+    var dropdownOptions: IPropertyPaneDropdownOption[] = [];
+    for (var itemKey in response.value) {
+        dropdownOptions.push({ key: response.value[itemKey][key], text: response.value[itemKey][text] });
+    }
+    return dropdownOptions;
+  }
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
@@ -73,12 +106,38 @@ export default class DhcFfaqWebPart extends BaseClientSideWebPart<IDhcFfaqWebPar
                   label: strings.DescriptionFieldLabel
                 }),
                 PropertyPaneToggle('applycss', {
-                  label: "Apply page-wide CSS",
-                  offText: "CSS not applied",
-                  onText: "CSS applied",
+                  label: "Apply CSS",
+                  offText: "Off",
+                  onText: "On",
+                }),
+                PropertyPaneToggle('featured', {
+                  label: "Featured FAQs",
+                  offText: "All FAQs",
+                  onText: "Featured FAQs",
+                }),
+                PropertyPaneDropdown('ItemsDropDown1',{ 
+                  disabled: !this.properties.featured, 
+                  label: "Select Item to display",  
+                  options: this.Q_Options,  
+                }),
+                PropertyPaneDropdown('ItemsDropDown2',{ 
+                  disabled: !this.properties.featured, 
+                  label: "Select Item to display",  
+                  options: this.Q_Options,  
+                }),
+                PropertyPaneDropdown('ItemsDropDown3',{ 
+                  disabled: !this.properties.featured, 
+                  label: "Select Item to display",  
+                  options: this.Q_Options,  
+                }),
+                PropertyPaneToggle('adjust', {
+                  label: "Title direction",
+                  offText: "Left",
+                  onText: "Right",
                 }),
                 PropertyFieldSPListQuery('query', {
                   label: '',
+                  disabled: true, 
                   query: this.properties.query,
                   includeHidden: false,
                   baseTemplate: 100,

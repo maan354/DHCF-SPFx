@@ -13,6 +13,7 @@
   },
   "externals": {},
   "localizedResources": {
-    "DhcfNewsWebPartStrings": "lib/webparts/dhcfNews/loc/{locale}.js"
+    "DhcfNewsWebPartStrings": "lib/webparts/dhcfNews/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
   }
 }

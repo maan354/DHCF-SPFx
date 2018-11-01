@@ -2,8 +2,14 @@ import { Version } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  IPropertyPaneDropdownOption,
+  PropertyPaneDropdown,
+  PropertyPaneToggle
 } from '@microsoft/sp-webpart-base';
+
+import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
+import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import * as $ from 'jquery';
@@ -14,11 +20,47 @@ require('./News.css');
 
 export interface IDhcfNewsWebPartProps {
   description: string;
+  list: string;
+  showAll: boolean;
+  ItemsDropDown: string;
+  selected_list: string;
+}
+
+export interface ResponceDetails {
+  Title: string;
+  id: string; 
+}
+
+export interface ResponceCollection {
+  value: ResponceDetails[];  
+  length: Number;
 }
 
 export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebPartProps> {
 
+  private Q_Options: IPropertyPaneDropdownOption[] = [];
+
   public render(): void {
+
+    let _URL = this.context.pageContext.web.absoluteUrl + "/_api/web/Lists(guid'" + this.properties.selected_list + "')/items?"+
+  "$top=10&$orderby=Announcement_x0020_Date desc";
+
+    if (!this.properties.showAll) {    
+    this.getFields().then(responce => {
+      this.Q_Options = this._getDropDownCollection(responce, 'Admin', 'Admin');
+      this.context.propertyPane.refresh();
+    })}
+    
+    if (this.properties.ItemsDropDown) {
+       _URL = this.context.pageContext.web.absoluteUrl + "/_api/web/Lists(guid'" + this.properties.selected_list + "')/Items"+
+       "?$select=Title,Description,Announcement_x0020_Date,Admin/Title&$expand=Admin&$filter=Admin/Title eq '"+ this.properties.ItemsDropDown +"'&$top=10&$orderby=Announcement_x0020_Date desc"
+    }     
+
+    if (this.properties.showAll) {
+      _URL = this.context.pageContext.web.absoluteUrl + "/_api/web/Lists(guid'" + this.properties.selected_list + "')/items?"+"$top=10&$orderby=Announcement_x0020_Date desc";
+    }
+        
+
     this.domElement.innerHTML = `
     <div class="news-title-container">
 	    <span class="news-title-left">Announcements</span>
@@ -27,11 +69,10 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
     <div id="all-news" class="row"></div> 
     `;
 
-    var allNews = [];
+    let allNews = [];
     $.ajax({
-        url: this.context.pageContext.web.absoluteUrl + "/_api/web/Lists/GetByTitle('Announcements')/items?"+
-            "$top=5&$orderby=Announcement_x0020_Date desc" +
-            "",
+
+        url: _URL,
         type: "Get",
         async: false,
         headers: { 
@@ -39,7 +80,7 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
             "content-Type": "application/json;odata=verbose"
         }
     }).done(function(data){
-           var data = data.d.results;
+           var data = data.d.results;           
            $.each(data, function(i, item){
                 let itemDate = new Date(item.Announcement_x0020_Date)
                 allNews.push({
@@ -50,11 +91,19 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
           });
     });
     
-
-
+    if (!this.properties.selected_list) {
+      $('#all-news').append(`
+      <div class="SelectList" style="font-size: 18px; color: red">Select a list on property pane</div>
+      `)
+    }
     allNews = allNews.slice(0, 5);
-    //console.log(allNews);
     
+    if (allNews.length < 1) {
+      $('#all-news').append(`
+      <div class="SelectList">No Announcements found on the selected list</div>
+      `)
+    }
+
     allNews.forEach(function(item){
       $('#all-news').append(`
 
@@ -155,6 +204,23 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
       }($));
   }
 
+  private getFields(): Promise<any> {
+    let url:string = this.context.pageContext.site.serverRelativeUrl + `/_api/Lists(guid'` + this.properties.selected_list + `')/items?$select=Title,Admin/Title&$expand=Admin&$orderby=Title%20asc`;
+    return this.context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
+      return response.json();
+    });
+  }
+
+  private _getDropDownCollection(response: ResponceCollection, key: string, text: string): IPropertyPaneDropdownOption[] {
+    var dropdownOptions: IPropertyPaneDropdownOption[] = [];
+    for (var itemKey in response.value) {
+        if (response.value[itemKey][text])
+        dropdownOptions.push({ key: response.value[itemKey][key].Title, text: response.value[itemKey][text].Title});
+    }
+    console.log(dropdownOptions)
+    return dropdownOptions;
+  }
+
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
@@ -172,7 +238,30 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                })
+                }),                
+                PropertyFieldListPicker('selected_list', {
+                  label: 'Select a list',
+                  selectedList: this.properties.selected_list,
+                  includeHidden: false,
+                  baseTemplate: 100,
+                  orderBy: PropertyFieldListPickerOrderBy.Title,
+                  onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
+                  properties: this.properties,
+                  context: this.context,
+                  onGetErrorMessage: null,
+                  deferredValidationTime: 0,
+                  key: 'listPickerFieldId'
+                }),
+                PropertyPaneToggle('showAll', {
+                  label: "Show All",
+                  offText: "Off",
+                  onText: "On",
+                }),                
+                PropertyPaneDropdown('ItemsDropDown',{ 
+                  label: "Select Item to display",  
+                  options: this.Q_Options,  
+                  disabled: this.properties.showAll,
+                }),
               ]
             }
           ]
