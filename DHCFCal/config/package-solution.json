@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "DHCF-employee-directory",
-    "id": "29e35a48-e2f7-429d-8e99-8af8aff9151e",
-    "version": "1.3.4.0",
+    "name": "dhcf-cal",
+    "id": "31a16876-7df2-47fc-9073-f08604936463",
+    "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "webApiPermissionRequests": [
       {
@@ -17,6 +17,6 @@
     ]
   },
   "paths": {
-    "zippedPackage": "solution/dhcf-employee-directory.sppkg"
+    "zippedPackage": "solution/dhcf-cal.sppkg"
   }
 }
