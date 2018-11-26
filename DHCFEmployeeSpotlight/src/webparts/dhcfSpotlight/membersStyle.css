@@ -24,6 +24,41 @@
 	font-weight: bold;
 }
 
+
+.modal-sm {
+	min-width: 380px!important;
+}
+.profile-modal-picture {
+	border-radius: 50%;
+	height: 80px;
+	width: 80px;
+	padding: 5px;
+}
+
+.person-modal-name {
+	font-weight: bold;
+	font-size: 22px;
+	color: red;
+}
+
+.person-modal-title {
+  color: gray;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.project-members-left-cell-m {
+	display: table-cell;
+	vertical-align: top;
+	padding-bottom: 10px;
+}
+
+.project-members-right-cell-m {
+	display: table-cell;
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
+
 .project-members-left-cell {
 	display: table-cell;
 	width: 38.2%;
@@ -38,7 +73,7 @@
 .project-members-right-cell {
 	display: table-cell;
 	padding-bottom: 10px;
-	padding-left: 10px;
+	padding-left: 10px;	
 }
 
 .project-members-row:not(:first-child) {
@@ -50,9 +85,17 @@
 }
 .project-members-row {
 	display: table-row;
+	cursor: pointer;
 }
 
 hr.divider-right {
 	width: 400px;
     margin-left: 0px;
+}
+
+.modal-dialog {
+	position: absolute!important;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) !important;
 }

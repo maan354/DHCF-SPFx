@@ -56,6 +56,8 @@ export default class DhcfSpotlightWebPart extends BaseClientSideWebPart<IDhcfSpo
 
   public render(): void {
 
+    SPComponentLoader.loadCss('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+
     if (!this.properties.showAll) {    
       this.getFields().then(responce => {
         this.Q_Options = this._getDropDownCollection(responce, 'Admin', 'Admin');
@@ -91,14 +93,14 @@ export default class DhcfSpotlightWebPart extends BaseClientSideWebPart<IDhcfSpo
     if (select === null) {
       url = this.context.pageContext.web.absoluteUrl + 
       `/_api/web/lists/getByTitle('Spotlight')/items?`+
-        `$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,until0&`+
+        `$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,FullDescription,until0&`+
         `$expand=Employee&$orderby=order0 asc &`+
         `$filter=until0 ge datetime'`  + today.toISOString() + `'`;
       }
     else {
       url = this.context.pageContext.web.absoluteUrl + 
       `/_api/web/lists/getByTitle('Spotlight')/items?` +
-        `$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,until0,Admin/Title&` +
+        `$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,FullDescription,until0,Admin/Title&` +
         `$expand=Employee,Admin&$orderby=order0 asc &`+
         `$filter=(until0 ge datetime'`  + today.toISOString() + `') and (Admin/Title eq '`+ this.properties.ItemsDropDown +`')`;
       }
