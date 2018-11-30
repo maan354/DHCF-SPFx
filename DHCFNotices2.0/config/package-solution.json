@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "DHCF-Notices",
+    "id": "a7413feb-52e0-4381-b01a-f0b8e55b307e",
+    "version": "2.0.0.2",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/dhcf-notices.sppkg"
+  }
+}

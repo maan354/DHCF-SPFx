@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.6.0",
+    "libraryName": "dhcf-notices",
+    "libraryId": "a7413feb-52e0-4381-b01a-f0b8e55b307e",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}
