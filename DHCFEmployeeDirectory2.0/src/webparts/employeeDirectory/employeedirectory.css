@@ -1,4 +1,4 @@
-div[class^='ms-SearchBox search_'] {
+div[class^='rightpanel_'] > div[class^='ms-SearchBox'] {
 	background-color: white;
 	max-width: 900px;
 	border-radius: 2px;

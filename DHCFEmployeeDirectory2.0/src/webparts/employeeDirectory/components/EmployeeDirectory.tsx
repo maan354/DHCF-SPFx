@@ -72,12 +72,14 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
           this.getGraphUsers();
     });
 
+    this.setColumns();
+
   }
 
   /**** func to set number of columns. Use screen size as a parameter */
-  private setColumns() {
+  private setColumns():void {
     const width = document.documentElement.clientWidth;
-    if (width > 1360)
+    if (width > 1345)
       this.setState({ _columns: 3 });
     else if (width > 1025)
       this.setState({ _columns: 2 });
@@ -99,7 +101,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
     /****  filters users by selected checkboxes */
     if (local_filters.size !== 0) {
       this.state.users.filter(o => {
-        if (local_filters.has(o.Department) || local_filters.has(o.JobTitle)) {
+        if (local_filters.has(o.Office) || local_filters.has(o.JobTitle)) {
           filtered_users.push(o);
         }
       })
@@ -133,7 +135,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
                     userPhoto={"https://dcgovict.sharepoint.com/sites/dhcf/_layouts/15/userphoto.aspx?size=L&accountname=" + user.SipAddress}
                     userName={user.FirstName + ' ' + user.LastName}
                     userTitle={user.JobTitle}
-                    userDept={user.Office}
+                    userDept={user.Office} 
                     userWorkPhone={user.WorkPhone}
                     userMobilePhone={user.MobilePhone}
                     userDepartment={user.Department}
@@ -294,7 +296,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
   }
 
   private getAdmins(_users) {
-    return Array.from(new Set(_users.map(item => item.Department))).sort();
+    return Array.from(new Set(_users.map(item => item.Office))).sort();
   }
 
   private getTitles(_users) {
