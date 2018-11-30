@@ -107,10 +107,23 @@ span.ms-navedit-flyoutArrow {
 
 .month {
     color:white;
+    text-transform: uppercase;
+    font-size: 9px;
+    font-family: helvetica;
+}
+
+.weekday {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
 }
 
 .day { 
-    font-size: 28pt;
+    font-size: 24pt;
+    font-weight: 600;
+    font-family: Arial Black;
+    position: relative;
+    top: -7px;
 }
 
 #all-news {    

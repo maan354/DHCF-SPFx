@@ -111,6 +111,8 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
           <div class="news-date">
             <span class="month">` + item.Date.toLocaleDateString('en-GB', {month: "long"}) + `</span>
             <br/>
+            <span class="weekday">`  + item.Date.toLocaleDateString('en-GB', {weekday: "long"}) + `</span>
+            <br/>
             <span class="day">`+ item.Date.getDate() +`</span>
           </div>
           <div class="news-info">
