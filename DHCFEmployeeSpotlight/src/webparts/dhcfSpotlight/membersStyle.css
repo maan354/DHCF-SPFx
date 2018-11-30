@@ -1,10 +1,17 @@
 #Project_Properties_body{
-	margin:2px 0 0 0px;
-	width: 350px;
+	height: auto;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 0px;
+	width: 400px;
 	padding-left: 30px;
-	
+	padding-right: 30px;	
 }
 
+#Project_Properties_body:hover {
+	box-shadow: 0 2px 5px 0 rgba(146,170,187,.3), inset 0 2px 0 #fff;
+}
 
 .profile-picture {
 	border-radius: 50%;
@@ -16,7 +23,7 @@
 .person-name {
 	font-weight: bold;
 	font-size: 18px;
-	color: red;
+	color: #da243b;
 }
 
 .person-title {
@@ -38,7 +45,7 @@
 .person-modal-name {
 	font-weight: bold;
 	font-size: 22px;
-	color: red;
+	color: #da243b;
 }
 
 .person-modal-title {
@@ -61,7 +68,7 @@
 
 .project-members-left-cell {
 	display: table-cell;
-	width: 38.2%;
+	width: 28.2%;
 	vertical-align: top;
 	padding-bottom: 10px;
 }
@@ -80,7 +87,7 @@
   margin-top: 12px;
 }
 .project-members-block {
-    padding-left: 30px;
+    padding-left: 0px;
     display: table;
 }
 .project-members-row {
