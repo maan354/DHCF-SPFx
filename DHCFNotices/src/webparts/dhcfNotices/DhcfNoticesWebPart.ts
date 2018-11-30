@@ -13,6 +13,7 @@ import styles from './DhcfNoticesWebPart.module.scss';
 import * as strings from 'DhcfNoticesWebPartStrings';
 import { INotice, INotices } from './Notices';
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
+import { SPComponentLoader } from '@microsoft/sp-loader';
 
 export interface IDhcfNoticesWebPartProps {
   description: string;
@@ -36,6 +37,8 @@ export default class DhcfNoticesWebPart extends BaseClientSideWebPart<IDhcfNotic
 
   public render(): void {
 
+    //SPComponentLoader.loadCss('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+
     if (!this.properties.showAll) {    
       this.getFields().then(responce => {
         this.Q_Options = this._getDropDownCollection(responce, 'Department', 'Department');
@@ -50,7 +53,7 @@ export default class DhcfNoticesWebPart extends BaseClientSideWebPart<IDhcfNotic
       select = this.properties.ItemsDropDown || null 
 
     this.domElement.innerHTML = `
-        <div class="${styles.dhcfNotices}">
+        <div id="rooot" class="${styles.dhcfNotices}">
             <div class="news-title-container">
               <span class="news-title">Important Notices</span>
               <hr class="divider-right"/>
@@ -60,7 +63,8 @@ export default class DhcfNoticesWebPart extends BaseClientSideWebPart<IDhcfNotic
               </div>          
         </div>`;
 
-      this.renderWebpartData(select);
+    this.renderWebpartData(select);
+
   }
 
   private renderWebpartData(select) {
@@ -93,8 +97,8 @@ export default class DhcfNoticesWebPart extends BaseClientSideWebPart<IDhcfNotic
     let announcementLogo: string = '';
     announcements.forEach((item: INotice) => {
       console.log(item.Department);
-      if (item.Department === "IT") announcementLogo = String(require('./images/IT.jpg'));
-      else announcementLogo = String(require('./images/Announcement.png'));
+      
+      
       html += `      
         <ul class="${styles.announcementsList}">
             <li>    
