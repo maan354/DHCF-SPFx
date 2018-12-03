@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CustomAction
+        Title="AnalyticsApp"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ClientSideComponentId="a71a9936-8611-44bc-ac42-6f8f620b962d"
+        ClientSideComponentProperties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </CustomAction>
+</Elements>
