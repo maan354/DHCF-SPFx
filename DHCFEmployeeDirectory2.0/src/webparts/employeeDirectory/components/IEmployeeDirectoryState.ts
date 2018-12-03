@@ -8,4 +8,5 @@ export interface IEmployeeDirectoryState {
   filterOptions: any;
   titleOptions: any;
   filters: any[];
+  filters2: any[];
 }

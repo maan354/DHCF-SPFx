@@ -26,7 +26,8 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
     _columns: 3,
     filterOptions: [],
     titleOptions: [],
-    filters: []
+    filters: [],
+    filters2: []
   };
 
   constructor(props: IEmployeeDirectoryProps) {
@@ -38,6 +39,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
     this._onSearch = this._onSearch.bind(this);
     this.setColumns = this.setColumns.bind(this);
     this._updateFilters = this._updateFilters.bind(this);
+    this._updateFilters2 = this._updateFilters2.bind(this);
 
   }
 
@@ -92,20 +94,19 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
 
   public render(): React.ReactElement<IEmployeeDirectoryProps> {
 
-    console.log(this.state.filters);
-
     /**** on resize set number of columns  */
     window.onresize = this.setColumns;
 
 
     const local_filters = new Set(this.state.filters);
+    const local_filters2 = new Set(this.state.filters2);
     let mychunk;
     let filtered_users = [];    
 
     /****  filters users by selected checkboxes */
     if (local_filters.size !== 0) {
       this.state.users.filter(o => {
-        if (local_filters.has(o.Office) || local_filters.has(o.JobTitle)) {
+        if (local_filters.has(o.Office)) {
           filtered_users.push(o);
         }
       })
@@ -114,6 +115,18 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
     else {
       filtered_users = this.state.users;
       this.trimedTitles = null;
+    }
+    /****  filter by second set of filters 'Titles' */
+    if (local_filters2.size !== 0) {
+
+      let trimed_data = filtered_users.filter(o =>
+        local_filters2.has(o.JobTitle)
+      )
+      filtered_users = trimed_data
+      //console.log(trimed_data)
+    }
+    else {
+      filtered_users = filtered_users
     }
 
 
@@ -161,7 +174,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
     
       <div className={styles.employeeDirectory}>
         {/**** initialising left panel with filterOptions object and a method as a props */}
-        <LeftPanel data={this.state.filterOptions} data1={this.trimedTitles || this.state.titleOptions} updateChecks={this._updateFilters} />
+        <LeftPanel data={this.state.filterOptions} data1={this.trimedTitles || this.state.titleOptions} updateChecks={this._updateFilters} updateChecks2={this._updateFilters2}/>
         <div className={styles.rightpanel}>
         
           <SearchBox
@@ -224,10 +237,29 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
 
   /**** update state with checked checkboxes */
   public _updateFilters(current, e): void {
-    if (current === null) 
-      this.setState({ filters: [] })
+    if (current === null) {
+      this.setState({ filters: [] });
+      this.setState({ filters2: [] });
+    }
     else if (current) {
         let array = this.state.filters
+        const index = array.indexOf(current);
+        if (index == -1) {
+          array.push(current);
+          this.setState({ filters2: [] });
+        }
+        else {
+          array.splice(index, 1);
+        }
+        this.setState({
+          filters: array
+        });
+      }   
+  }
+
+  public _updateFilters2(current, e): void {
+    if (current) {
+        let array = this.state.filters2
         const index = array.indexOf(current);
         if (index == -1) {
           array.push(current);
@@ -236,7 +268,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
           array.splice(index, 1);
         }
         this.setState({
-          filters: array
+          filters2: array
         });
       }   
   }

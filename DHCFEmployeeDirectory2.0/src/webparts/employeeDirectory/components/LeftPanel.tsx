@@ -16,6 +16,7 @@ export class LeftPanel extends React.Component<any, any> {
     this.state = { isChecked: true }
     this.deselectAllAdmins = this.deselectAllAdmins.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleChange2 = this.handleChange2.bind(this);
     this.showMore = this.showMore.bind(this);
     this.showMoreAdmins = this.showMoreAdmins.bind(this);
     this.showMoreTitles = this.showMoreTitles.bind(this);
@@ -34,6 +35,21 @@ export class LeftPanel extends React.Component<any, any> {
     }
     this.setState({ isChecked: false });
     this.props.updateChecks(current, e);
+    this.setState({ selectAllAdmins: false });
+    ReactDom.findDOMNode(this).scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+  }
+
+  handleChange2(current, e) {
+
+    const index = this.CheckedBoxes.indexOf(current);
+    if (index === -1) {
+      this.CheckedBoxes.push(current);
+    }
+    else {
+      this.CheckedBoxes.splice(index, 1);
+    }
+    this.setState({ isChecked: false });
+    this.props.updateChecks2(current, e);
     this.setState({ selectAllAdmins: false });
     ReactDom.findDOMNode(this).scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   }
@@ -106,7 +122,7 @@ export class LeftPanel extends React.Component<any, any> {
       if (title && (index < 12 || this.state.showalltitles)) {
         return (
           <div>
-            <Checkbox checked={this.isChecked(title)} label={title.substring(0, 30)} onChange={(e) => this.handleChange(title, e)} />
+            <Checkbox checked={this.isChecked(title)} label={title.substring(0, 30)} onChange={(e) => this.handleChange2(title, e)} />
           </div>
         );
       }
