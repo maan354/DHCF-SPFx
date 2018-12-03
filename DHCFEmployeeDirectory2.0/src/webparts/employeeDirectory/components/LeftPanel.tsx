@@ -24,9 +24,10 @@ export class LeftPanel extends React.Component<any, any> {
   private CheckedBoxes = [];
   /**** liftin' state up */
   handleChange(current, e) {
-    const index = this.CheckedBoxes.indexOf(current.admin);
+
+    const index = this.CheckedBoxes.indexOf(current);
     if (index === -1) {
-      this.CheckedBoxes.push(current.admin);
+      this.CheckedBoxes.push(current);
     }
     else {
       this.CheckedBoxes.splice(index, 1);
@@ -63,15 +64,16 @@ export class LeftPanel extends React.Component<any, any> {
   }
 
   deselectAllAdmins() {
+
     if (this.CheckedBoxes.length == 0) {
-      this.CheckedBoxes = this.props.data.slice();
-      this.setState({ isChecked: false });
-      let item;
-      let obj;
-      for (item = 0; item < this.CheckedBoxes.length; item++) {
-        obj = { admin: this.CheckedBoxes[item] }
-        this.props.updateChecks(obj);
-      }
+        this.CheckedBoxes = this.props.data.slice();
+        this.setState({ isChecked: false });
+        let item;
+        let obj;
+        for (item = 0; item < this.CheckedBoxes.length; item++) {
+          obj = { admin: this.CheckedBoxes[item] }
+          this.props.updateChecks(obj);
+        }
     }
     else {
       this.CheckedBoxes = [];
@@ -86,7 +88,7 @@ export class LeftPanel extends React.Component<any, any> {
       if (admin && (index < 12 || this.state.showall)) {
         return (
           <div>
-            <Checkbox checked={this.isChecked(admin)} label={admin.substring(0, 30)} onChange={(e) => this.handleChange({ admin }, e)} />
+            <Checkbox checked={this.isChecked(admin)} label={admin.substring(0, 30)} onChange={(e) => this.handleChange(admin, e)} />
           </div>
         );
       }
@@ -104,7 +106,7 @@ export class LeftPanel extends React.Component<any, any> {
       if (title && (index < 12 || this.state.showalltitles)) {
         return (
           <div>
-            <Checkbox label={title.substring(0, 30)} onChange={(e) => this.handleChange({ title }, e)} />
+            <Checkbox checked={this.isChecked(title)} label={title.substring(0, 30)} onChange={(e) => this.handleChange(title, e)} />
           </div>
         );
       }

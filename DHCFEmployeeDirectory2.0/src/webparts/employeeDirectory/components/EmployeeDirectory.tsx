@@ -88,7 +88,11 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
 
   }
 
+  private trimedTitles;
+
   public render(): React.ReactElement<IEmployeeDirectoryProps> {
+
+    console.log(this.state.filters);
 
     /**** on resize set number of columns  */
     window.onresize = this.setColumns;
@@ -96,7 +100,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
 
     const local_filters = new Set(this.state.filters);
     let mychunk;
-    let filtered_users = [];
+    let filtered_users = [];    
 
     /****  filters users by selected checkboxes */
     if (local_filters.size !== 0) {
@@ -105,10 +109,13 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
           filtered_users.push(o);
         }
       })
+      this.trimedTitles = this.trimTitels(filtered_users);
     }
     else {
       filtered_users = this.state.users;
+      this.trimedTitles = null;
     }
+
 
     /**** filter users by search string */
     if (this.state.search) {
@@ -154,7 +161,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
     
       <div className={styles.employeeDirectory}>
         {/**** initialising left panel with filterOptions object and a method as a props */}
-        <LeftPanel data={this.state.filterOptions} data1={this.state.titleOptions} updateChecks={this._updateFilters} />
+        <LeftPanel data={this.state.filterOptions} data1={this.trimedTitles || this.state.titleOptions} updateChecks={this._updateFilters} />
         <div className={styles.rightpanel}>
         
           <SearchBox
@@ -219,11 +226,11 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
   public _updateFilters(current, e): void {
     if (current === null) 
       this.setState({ filters: [] })
-    else if (current.admin) {
+    else if (current) {
         let array = this.state.filters
-        const index = array.indexOf(current.admin);
+        const index = array.indexOf(current);
         if (index == -1) {
-          array.push(current.admin);
+          array.push(current);
         }
         else {
           array.splice(index, 1);
@@ -231,22 +238,9 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
         this.setState({
           filters: array
         });
-      }
-      else if (current.title) {
-        let array = this.state.filters
-        const index = array.indexOf(current.title);
-        if (index == -1) {
-          array.push(current.title);
-        }
-        else {
-          array.splice(index, 1);
-        }
-        this.setState({
-          filters: array
-        });
-      }
-    
+      }   
   }
+
 
   private getUsers(_context): Promise<any> {
     let url = _context.pageContext.web.absoluteUrl + `/_api/web/siteuserinfolist/items?$top=2000&$select=
@@ -302,5 +296,11 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
   private getTitles(_users) {
     return Array.from(new Set(_users.map(item => item.JobTitle))).sort();
   }
+
+  private trimTitels(data) {
+    let _subtopics = Array.from(new Set(data.map(item => item.JobTitle))).sort();
+    return _subtopics  
+  }
+
 }
 
