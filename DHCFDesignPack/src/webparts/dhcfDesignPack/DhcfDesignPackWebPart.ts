@@ -3,12 +3,14 @@ import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
-  PropertyPaneToggle
+  PropertyPaneToggle,
+  PopupWindowPosition
 } from '@microsoft/sp-webpart-base';
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import * as strings from 'DhcfDesignPackWebPartStrings';
 import { SPComponentLoader } from '@microsoft/sp-loader';
+import browser from 'browser-detect';
 
 export interface IDhcfDesignPackWebPartProps {
   description: string;
@@ -24,6 +26,10 @@ export default class DhcfDesignPackWebPart extends BaseClientSideWebPart<IDhcfDe
    } 
 
   public render(): void {
+
+    const browser_ver = browser();
+    if (browser_ver.name == 'ie') 
+      window.alert("Dear user, we detected that you are running Internet Explorer browser. Unfortunatelly this browser is no longer supported by modern web pages. Please use Chrome, Firefox, Opera, EDGE or Safari.")
 
     if (this.properties.applycss == true) {
         SPComponentLoader.loadCss('https://dcgovict.sharepoint.com/sites/dhcf/cdn/DHCFStyles-landing.css');

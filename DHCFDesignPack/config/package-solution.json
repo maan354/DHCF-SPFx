@@ -3,7 +3,7 @@
   "solution": {
     "name": "dhcf-design-pack",
     "id": "9760b833-5ca6-4aa0-8337-9398b14c9fcb",
-    "version": "1.0.3.0",
+    "version": "1.0.3.2",
     "includeClientSideAssets": true
   },
   "paths": {
