@@ -7,7 +7,8 @@ import {
   PropertyPaneTextField,
   PropertyPaneToggle,
   PropertyPaneDropdown,
-  IPropertyPaneDropdownOption
+  IPropertyPaneDropdownOption,
+  PropertyPaneSlider
 } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'NoticesWebPartStrings';
@@ -23,6 +24,7 @@ export interface INoticesWebPartProps {
   description: string;
   showAll: boolean;
   ItemsDropDown: string;
+  maxitems: number;
 }
 
 export interface ResponceDetails {
@@ -60,12 +62,13 @@ export default class NoticesWebPart extends BaseClientSideWebPart<INoticesWebPar
     this.getAnnouncements(select).then(res => {
 
         this.myData = res.value;
-        console.log(this.myData);
+        //console.log(this.myData);
 
     const element: React.ReactElement<INoticesProps > = React.createElement(
       Notices,
       {
-        data: this.myData
+        data: this.myData,
+        showmax: this.properties.maxitems
       }
     );
 
@@ -76,10 +79,10 @@ export default class NoticesWebPart extends BaseClientSideWebPart<INoticesWebPar
   public getAnnouncements(select): Promise<INotices> {
     let url;
     if (select === null) {
-      url = this.context.pageContext.web.absoluteUrl + `/_api/lists/GetByTitle('Notices')/items?$select=Title,Body,Department,Author/FirstName,Author/LastName,Author/Title,Created,FullBody&$expand=Author`
+      url = this.context.pageContext.web.absoluteUrl + `/_api/lists/GetByTitle('Notices')/items?$select=Title,Body,Department,Author/FirstName,Author/LastName,Author/Title,Created,FullBody,Featured&$expand=Author&$filter=Featured eq 1&$orderby=Created desc`;
     }
     else {
-      url = this.context.pageContext.web.absoluteUrl + `/_api/lists/GetByTitle('Notices')/items?$select=Title,Body,Department,Author/FirstName,Author/LastName,Author/Title,Created,FullBody&$expand=Author&$filter=Department eq '`+ this.properties.ItemsDropDown +`'`;
+      url = this.context.pageContext.web.absoluteUrl + `/_api/lists/GetByTitle('Notices')/items?$select=Title,Body,Department,Author/FirstName,Author/LastName,Author/Title,Created,FullBody&$expand=Author&$filter=Department eq '`+ this.properties.ItemsDropDown +`'&$orderby=Created desc`;
     }        
     return new Promise<INotices>((resolve) => {
         resolve(this.context.spHttpClient.get(url, SPHttpClient.configurations.v1)
@@ -121,18 +124,27 @@ export default class NoticesWebPart extends BaseClientSideWebPart<INoticesWebPar
           },
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: "Main properties",
               groupFields: [
                 PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                  label: "Notices Web Part Configuration"
+                }),                
+                PropertyPaneSlider('maxitems', {
+                  label: 'Max Items',
+                  min: 1,
+                  max: 6,
+                  value: 3,
+                  step: 1,
+                  showValue: true
                 })
               ]
             },
             {
               groupName: "List settings",
               groupFields: [
+                
                 PropertyPaneToggle('showAll', {
-                  label: "Show All",
+                  label: "Landing page mode",
                   offText: "Off",
                   onText: "On",
                 }),                

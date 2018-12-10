@@ -3,7 +3,7 @@
   "solution": {
     "name": "DHCF-Notices",
     "id": "a7413feb-52e0-4381-b01a-f0b8e55b307e",
-    "version": "2.0.0.2",
+    "version": "2.0.1.2",
     "includeClientSideAssets": true
   },
   "paths": {

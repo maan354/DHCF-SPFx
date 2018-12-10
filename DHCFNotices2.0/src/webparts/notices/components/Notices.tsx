@@ -48,8 +48,9 @@ export default class Notices extends React.Component<INoticesProps, any> {
                   break;
               }
               
-              console.log(item, index);              
-              return React.createElement(render_notice, { item: item, pic: announcementLogo, handleShow: this.handleShow   } as any);
+            //  console.log(item, index);
+              if (index < this.props.showmax)              
+                return React.createElement(render_notice, { item: item, pic: announcementLogo, handleShow: this.handleShow   } as any);
               })
             }
             <NoticeModal show={this.state.show} onHide={this.handleClose} item={this.state.currentItem}/>                  

@@ -20,7 +20,10 @@
     "description": { "default": "Notices description" },
     "officeFabricIconFontName": "NotePinned",
     "properties": {
-      "description": "Notices"
+      "description": "Notices",
+      "maxitems": 3,
+      "showAll": true
+      
     }
   }]
 }
