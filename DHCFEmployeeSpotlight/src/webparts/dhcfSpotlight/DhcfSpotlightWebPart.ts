@@ -95,7 +95,7 @@ export default class DhcfSpotlightWebPart extends BaseClientSideWebPart<IDhcfSpo
       `/_api/web/lists/getByTitle('Spotlight')/items?`+
         `$select=FileRef,Employee/EMail,Employee/Office,Employee/JobTitle,Employee/FirstName,Employee/LastName,order0,Description0,FullDescription,until0&`+
         `$expand=Employee&$orderby=order0 asc &`+
-        `$filter=until0 ge datetime'`  + today.toISOString() + `'`;
+        `$filter=(until0 ge datetime'`  + today.toISOString() + `' and Featured eq 1)`;
       }
     else {
       url = this.context.pageContext.web.absoluteUrl + 
@@ -170,7 +170,7 @@ export default class DhcfSpotlightWebPart extends BaseClientSideWebPart<IDhcfSpo
                   disabled: true
                 }),
                 PropertyPaneToggle('showAll', {
-                  label: "Show All",
+                  label: "Landing page mode",
                   offText: "Off",
                   onText: "On",
                 }),                
