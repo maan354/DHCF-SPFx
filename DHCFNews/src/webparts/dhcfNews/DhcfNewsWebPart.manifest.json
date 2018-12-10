@@ -21,6 +21,7 @@
     "officeFabricIconFontName": "RenewalCurrent",
     "properties": {
       "description": "DHCF-News",
+      "maxitems": 3,
       "selected_list": "783c7341-e0ce-46de-b45e-69cdfe1359f9",
       "showAll": true
     }

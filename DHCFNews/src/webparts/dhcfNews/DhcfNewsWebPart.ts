@@ -5,7 +5,8 @@ import {
   PropertyPaneTextField,
   IPropertyPaneDropdownOption,
   PropertyPaneDropdown,
-  PropertyPaneToggle
+  PropertyPaneToggle,
+  PropertyPaneSlider
 } from '@microsoft/sp-webpart-base';
 
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
@@ -24,6 +25,7 @@ export interface IDhcfNewsWebPartProps {
   showAll: boolean;
   ItemsDropDown: string;
   selected_list: string;
+  maxitems: number;
 }
 
 export interface ResponceDetails {
@@ -52,12 +54,12 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
     })}
     
     if (this.properties.ItemsDropDown) {
-       _URL = this.context.pageContext.web.absoluteUrl + "/_api/web/Lists(guid'" + this.properties.selected_list + "')/Items"+
-       "?$select=Title,Description,Announcement_x0020_Date,Admin/Title&$expand=Admin&$filter=Admin/Title eq '"+ this.properties.ItemsDropDown +"'&$top=10&$orderby=Announcement_x0020_Date desc"
+       _URL = `${this.context.pageContext.web.absoluteUrl}/_api/web/Lists(guid'${this.properties.selected_list}')/Items`+
+       `?$select=Title,Description,Announcement_x0020_Date,Admin/Title&$expand=Admin&$filter=Admin/Title eq '${this.properties.ItemsDropDown}'&$top=${this.properties.maxitems}&$orderby=Announcement_x0020_Date desc`
     }     
 
     if (this.properties.showAll) {
-      _URL = this.context.pageContext.web.absoluteUrl + "/_api/web/Lists(guid'" + this.properties.selected_list + "')/items?"+"$top=10&$orderby=Announcement_x0020_Date desc";
+      _URL = `${this.context.pageContext.web.absoluteUrl}/_api/web/Lists(guid'${this.properties.selected_list}')/items?$filter=Featured eq 1&$top=${this.properties.maxitems}&$orderby=Announcement_x0020_Date desc`;
     }
         
 
@@ -232,14 +234,19 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: "Announcements Configuration"
           },
           groups: [
             {
-              groupName: strings.BasicGroupName,
-              groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+              groupName: "Main settings",
+              groupFields: [                
+                PropertyPaneSlider('maxitems', {
+                  label: 'Max Items',
+                  min: 1,
+                  max: 6,
+                  value: 3,
+                  step: 1,
+                  showValue: true
                 }),                
                 PropertyFieldListPicker('selected_list', {
                   label: 'Select a list',
@@ -255,7 +262,7 @@ export default class DhcfNewsWebPart extends BaseClientSideWebPart<IDhcfNewsWebP
                   key: 'listPickerFieldId'
                 }),
                 PropertyPaneToggle('showAll', {
-                  label: "Show All",
+                  label: "Landing page mode",
                   offText: "Off",
                   onText: "On",
                 }),                
