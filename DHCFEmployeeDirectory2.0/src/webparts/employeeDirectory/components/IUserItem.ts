@@ -11,4 +11,6 @@ export interface IUserItem {
   LastName: string;
   MobilePhone: string;
   WorkPhone: string;
+  officemap: string;
+  cubicle: string;
 }

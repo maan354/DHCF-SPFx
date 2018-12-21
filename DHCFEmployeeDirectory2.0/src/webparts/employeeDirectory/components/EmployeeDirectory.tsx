@@ -68,6 +68,24 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
             filterOptions: _admins,
             titleOptions: _titles
           });
+
+          this.getOffices(this.props.context).then(users_with_offices => {
+            users_with_offices.value.forEach(element => {
+              this.setState(state => {
+                const users = state.users.map(item => {
+                    if (item.SipAddress == element.User.SipAddress) {
+                        item.officemap = element.officemap;
+                        item.cubicle = element.Office
+                    }
+                    return item
+                });          
+                return {
+                  users,
+                };
+              });
+            });
+          })
+
         })
         .catch((error: any) => console.error(error));
        if (this.props.useGraph) 
@@ -160,6 +178,8 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
                     userMobilePhone={user.MobilePhone}
                     userDepartment={user.Department}
                     userEmail={user.EMail}
+                    userOfficemap={user.officemap}
+                    userCubicle={user.cubicle}
                      />
                 </div>
               );
@@ -286,6 +306,13 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
       });
     }
     url = url + filter + orderby;
+    return _context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
+      return response.json();
+    });
+  }
+
+  private getOffices(_context): Promise<any> {
+    let url = `https://dcgovict.sharepoint.com/sites/dhcf/ocoo/_api/web/lists/getByTitle('Employees')/items/?$Top=50000&$Select=Id,Office,officemap,User/SipAddress,User/Id,User/Title&$Expand=User&$filter=Office ne null&$orderby=Office asc`;        
     return _context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
       return response.json();
     });
