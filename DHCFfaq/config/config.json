@@ -12,10 +12,11 @@
     }
   },
   "externals": {
-    "sp-client-custom-fields": "node_modules/sp-client-custom-fields/dist/sp-client-custom-fields.bundle.js"    
+    "sp-client-custom-fields": "node_modules/sp-client-custom-fields/dist/sp-client-custom-fields.bundle.js"
   },
   "localizedResources": {
     "DhcFfaqWebPartStrings": "lib/webparts/dhcFfaq/loc/{locale}.js",
-    "sp-client-custom-fields/strings": "node_modules/sp-client-custom-fields/lib/loc/en-us.js"
+    "sp-client-custom-fields/strings": "node_modules/sp-client-custom-fields/lib/loc/en-us.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
   }
 }

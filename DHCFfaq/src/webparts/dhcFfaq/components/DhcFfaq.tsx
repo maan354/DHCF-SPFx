@@ -44,6 +44,7 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
     }, () => {
       this.getFAQs(this.props.context)
         .then(data => {
+          console.log(data)
           const _topics = this.getTopics(data.value);
           const _subtopics = this.getSubtopics(data.value);
           this.setState({
@@ -233,7 +234,7 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
   }
 
   private getFAQs(_context): Promise<any> {
-      let url:string = _context.pageContext.web.serverRelativeUrl + `/_api/lists/GetByTitle('FAQ')/items`;
+      let url:string = _context.pageContext.web.serverRelativeUrl + `/_api/lists(guid'` + this.props.allProps.selected_list + `')/items`;
       //let url:string = `https://dcgovict.sharepoint.com/sites/dhcf/it/_api/lists/GetByTitle('FAQ - List')/items`;
       return _context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
         return response.json();
@@ -241,7 +242,7 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
   }
 
   private updateFAQ(id,data) {
-    this.props.context.spHttpClient.post(this.props.context.pageContext.web.serverRelativeUrl + `/_api/lists/GetByTitle('FAQ')/items(${id})`,
+    this.props.context.spHttpClient.post(this.props.context.pageContext.web.serverRelativeUrl + `/_api/lists(guid'` + this.props.allProps.selected_list + `')/items(${id})`,
     SPHttpClient.configurations.v1,  
     {  
       headers: {  
@@ -264,7 +265,7 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
   }
 
   private getSubtopics(data) {
-    return Array.from(new Set(data.map(item => item.Subtopic))).sort();
+    return Array.from(new Set(data.map(item => item.Subtopic))).sort() || null;
   }
 
   private trimSubtopics(data) {

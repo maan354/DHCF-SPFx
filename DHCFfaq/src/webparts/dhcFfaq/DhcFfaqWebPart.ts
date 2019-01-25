@@ -11,7 +11,7 @@ import {
 } from '@microsoft/sp-webpart-base';
 
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
-import { PropertyFieldSPListQuery, PropertyFieldSPListQueryOrderBy } from 'sp-client-custom-fields/lib/PropertyFieldSPListQuery';
+import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
 import * as strings from 'DhcFfaqWebPartStrings';
 import DhcFfaq from './components/DhcFfaq';
 import { IDhcFfaqProps } from './components/IDhcFfaqProps';
@@ -25,6 +25,7 @@ export interface IDhcFfaqWebPartProps {
   query: string;
   featured: boolean;
   adjust: boolean;
+  selected_list: string;  
 }
 
 export interface ResponceDetails {
@@ -57,19 +58,31 @@ export default class DhcFfaqWebPart extends BaseClientSideWebPart<IDhcFfaqWebPar
       })
     }
 
-    const element: React.ReactElement<IDhcFfaqProps > = React.createElement(
-      DhcFfaq,
-      {
-        allProps: this.properties,
-        context: this.context
-      }
-    );
+    if (!!this.properties.selected_list) {
+      const element: React.ReactElement<IDhcFfaqProps > = React.createElement(
+        DhcFfaq,
+        {
+          allProps: this.properties,
+          context: this.context
+        }
+      );
+      ReactDom.render(element, this.domElement);
+    }
+    else {
+      const element: React.ReactElement<IDhcFfaqProps > = React.createElement(
+        'div',
+        null,
+        'Please select a list with FAQs'
+      );
+      ReactDom.render(element, this.domElement);
+    }
+    
 
-    ReactDom.render(element, this.domElement);
+    
   }
 
   private getFAQs(): Promise<any> {
-    let url:string = this.context.pageContext.site.serverRelativeUrl + `/_api/lists/GetByTitle('FAQ')/items?$select=Title_x0020__x0028_Question_x002&$orderby=Title_x0020__x0028_Question_x002 asc`;
+    let url:string = this.context.pageContext.site.serverRelativeUrl + `/_api/lists(guid'` + this.properties.selected_list + `')/items?$select=Title_x0020__x0028_Question_x002&$orderby=Title_x0020__x0028_Question_x002 asc`;
     return this.context.spHttpClient.get(url, SPHttpClient.configurations.v1).then((response: SPHttpClientResponse) => {
       return response.json();
     });
@@ -135,24 +148,19 @@ export default class DhcFfaqWebPart extends BaseClientSideWebPart<IDhcFfaqWebPar
                   offText: "Left",
                   onText: "Right",
                 }),
-                PropertyFieldSPListQuery('query', {
-                  label: '',
-                  disabled: true, 
-                  query: this.properties.query,
+                PropertyFieldListPicker('selected_list', {
+                  label: 'Select a list',
+                  selectedList: this.properties.selected_list,
                   includeHidden: false,
                   baseTemplate: 100,
-                  orderBy: PropertyFieldSPListQueryOrderBy.Title,
-                  showOrderBy: false,
-                  showMax: false,
-                  showFilters: false,
-                  max: 20,
-                  onPropertyChange: this.onPropertyPaneFieldChanged,
-                  render: this.render.bind(this),
-                  disableReactivePropertyChanges: this.disableReactivePropertyChanges,
-                  context: this.context,
+                  orderBy: PropertyFieldListPickerOrderBy.Title,
+                  onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
                   properties: this.properties,
-                  key: 'sliderGalleryQueryField'
-                })
+                  context: this.context,
+                  onGetErrorMessage: null,
+                  deferredValidationTime: 0,
+                  key: 'listPickerFieldId'
+                }),
               ]
             }
           ]

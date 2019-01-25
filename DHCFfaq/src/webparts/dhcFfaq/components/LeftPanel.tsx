@@ -101,7 +101,7 @@ export class LeftPanel extends React.Component<any, any> {
     })
 
     const subtopics = this.props.data2.map((subtopic: string, index): JSX.Element => {
-      
+      if (!!subtopic)
       return (
         <div>
           <Checkbox checked={this.isChecked(subtopic)} label={subtopic.substring(0, 35)} onChange={(e) => this.handleChange(subtopic, e)} />
