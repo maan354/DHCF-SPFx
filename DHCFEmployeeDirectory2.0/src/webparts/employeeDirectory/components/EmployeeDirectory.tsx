@@ -69,6 +69,8 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
             titleOptions: _titles
           });
 
+           /* Disabled till performance issue is solved
+
           this.getOffices(this.props.context).then(users_with_offices => {
             users_with_offices.value.forEach(element => {
               this.setState(state => {
@@ -85,6 +87,7 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
               });
             });
           })
+          */
 
         })
         .catch((error: any) => console.error(error));
@@ -319,32 +322,40 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
   }
 
   private getGraphUsers(): Promise<any> {
+
+    let graphData;
+    console.log("going to user graph",this.props.graphClient)
     if (!this.props.graphClient) {
       return;
     }
 
     this.props.graphClient
       .api("users")
-      .version("v1.0")
-   //   .select("bodyPreview,receivedDateTime,from,subject,webLink")
-   //   .top(5)
-   //   .orderby("receivedDateTime desc")
-      .get((err: any, res: any): void => {
-        if (err) {
-          // Something failed calling the MS Graph          
-          console.log("error: ", err.message);                      
-          return;
-        }
+      .version("beta")
+      .select("displayName,officeLocation,companyName,userPrincipalName,givenname,surname,department,jobtitle")
+      .filter("department eq 'IT'")
+      //.api("users/DHCFCapital9thOCFO938@dc.gov/calendarview?startdatetime=2019-1-28T04:00:00.000Z&enddatetime=2019-1-29T03:59:59.000Z")
+      //.version("beta")
+      .get()										 
+      .then(res => {
+				  
+															
+        console.log(res);
+				 
+		 
 
         // Check if a response was retrieved
-        if (res && res.value && res.value.length > 0) {
-          console.log(res);
+        if (res && res.value && res.value.length > 0) {          
+          graphData = res.value;
+
         }
         else {
-          // No messages found
+          // No users found
           console.log("Nada!")
         }
-      });
+        
+        return graphData
+      }, err => {console.log(err)});
 
   }
 

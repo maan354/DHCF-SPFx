@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './DhcFfaq.module.scss';
-import { SearchBox } from 'office-ui-fabric-react';
+import { SearchBox, CommandBarButton, TextField, Panel, PanelType, PrimaryButton, DefaultButton } from 'office-ui-fabric-react';
 import { IDhcFfaqProps } from './IDhcFfaqProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
@@ -71,6 +71,18 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
     let filtered_users = [];
    // const data = this.state.data
 
+  const submitModal = (): void => {
+      this.setState({
+        showPanel: true
+      })
+    };
+
+  const closeModal = (): void => {
+      this.setState({
+        showPanel: false
+      })
+    };
+
     if (this.props.allProps.featured) {
       this.state.data.filter(o => {
         if (o.Title_x0020__x0028_Question_x002.includes(this.props.allProps.ItemsDropDown1) ||
@@ -132,7 +144,6 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
     })
     
     let _markup;
-    console.log(this.props.allProps)
     if (this.props.allProps.featured) {
       _markup = (
         <div className="App">
@@ -157,6 +168,20 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
     else {
       _markup = (
         <div className="App">
+        <Panel
+          isOpen={this.state.showPanel}
+          type={PanelType.smallFixedFar}
+          onDismiss={this.closeModal}
+          headerText="Submit you question here"
+          closeButtonAriaLabel="Close"
+          onRenderFooterContent={this._onRenderFooterContent}          
+        >
+          <div><TextField 
+              multiline rows={4}
+              onBeforeChange = {this._onTextChange} 
+              />
+          </div>
+        </Panel>
         <LeftPanel data={this.state.filterOptions} data2={this.trimedSub || this.state.filterOptions2} updateSubs={this._updateSubs} updateChecks={this._updateFilters} />
         <div className={styles.right_panel}>
           <SearchBox
@@ -166,6 +191,14 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
             onClear={this._onSearchClear}
             value={this.state.search}
             disabled={this.state.loading}
+          />
+          <CommandBarButton
+            data-automation-id="test2"
+            disabled={false}
+            checked={false}
+            onClick={submitModal}
+            iconProps={{ iconName: 'Add' }}
+            text="Submit FAQ"
           />
           {QAs}
         </div>
@@ -273,7 +306,54 @@ export default class DhcFfaq extends React.Component<IDhcFfaqProps, any> {
     return _subtopics  
   }
 
-  
+  private submitModal = (): void => {
+    let data = {
+      "Title": this.state.submited_faq
+    }
+    let data_json = JSON.stringify(data)
+    this.saveFAQ(data_json);
+    this.setState({
+      showPanel: false
+    })
+  };
 
+  private closeModal = (): void => {
+    this.setState({
+      showPanel: false
+    })
+  };
+
+  private _onRenderFooterContent = (): JSX.Element => {
+    return (
+      <div>
+        <PrimaryButton onClick={this.submitModal} style={{ marginRight: '8px' }}>
+          Submit
+        </PrimaryButton>
+        <DefaultButton onClick={this.closeModal}>Cancel</DefaultButton>
+      </div>
+    );
+  };
+
+  private _onTextChange = (newText: string): void => {    
+      this.setState({ submited_faq: newText });    
+  };
+
+  private saveFAQ(data) {
+    console.log("going to update",data)
+    this.props.context.spHttpClient.post(this.props.context.pageContext.web.serverRelativeUrl + `/_api/lists/GetByTitle('SubmitedFAQs')/items`,
+    SPHttpClient.configurations.v1,  
+    {  
+      headers: {  
+        'Accept': 'application/json;odata=nometadata',  
+        'Content-type': 'application/json;odata=nometadata',  
+        'odata-version': '',  
+      },  
+      body: data  
+    }).then((response: SPHttpClientResponse): void => {  
+      console.log(`Item  successfully updated`);  
+    }, (error: any): void => {  
+      console.log(`Error updating item: ${error}`);  
+    });  
+  }
 
 }

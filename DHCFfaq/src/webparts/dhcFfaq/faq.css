@@ -35,9 +35,18 @@ div[class^='ms-SearchBox'] {
 	border-radius: 2px;
 	margin-right: 10px;
 	
+	
 }
 
 
+
+div[class^='right_panel_'] > .ms-Button--commandBar {
+	background-color: white;
+    float: right;
+    margin-right: 5px;
+    margin-top: 4px;
+	margin-bottom: 4px;
+}
 
 #Topics123 {
 	margin-right: 20px;
@@ -103,6 +112,8 @@ div[class^='ms-SearchBox'] {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	cursor: pointer;
+	font-size: 16pt;
+	font-weight: 600;
 }
 
 

@@ -28,19 +28,23 @@ export default class EmployeeDirectoryWebPart extends BaseClientSideWebPart<IEmp
   public onInit(): Promise<void> {
     
     //return super.onInit();
-
+    console.log(this.context)
+    
     return new Promise<void>((resolve: () => void, reject: (error: any) => void): void => {
       this.context.msGraphClientFactory
         .getClient()
         .then((client: MSGraphClient): void => {
           this.graphClient = client;
+          console.log(client);
           resolve();
-        }, err => reject(err));
+        }, err => {
+          reject(err)});
     });
-
+        
   } 
 
   public render(): void {
+
 
     SPComponentLoader.loadCss('https://use.fontawesome.com/releases/v5.3.1/css/all.css')
     if (this.properties.applycss == true) {

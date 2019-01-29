@@ -61,11 +61,10 @@ export default class GraphCalendarWebPart extends BaseClientSideWebPart<IGraphCa
     }
 
     this.graphClient
-      .api("users")
-      .version("v1.0")
-   //   .select("bodyPreview,receivedDateTime,from,subject,webLink")
-   //   .top(5)
-   //   .orderby("receivedDateTime desc")
+    //  .api("users")
+    //  .version("v1.0")
+    .api("users/DHCFCapital9thOCFO938@dc.gov/calendarview?startdatetime=2019-1-28T04:00:00.000Z&enddatetime=2019-1-29T03:59:59.000Z")
+    .version("beta")   
       .get((err: any, res: any): void => {
         if (err) {
           // Something failed calling the MS Graph          
