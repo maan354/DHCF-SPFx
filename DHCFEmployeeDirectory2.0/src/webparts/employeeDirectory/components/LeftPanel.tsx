@@ -101,14 +101,14 @@ export class LeftPanel extends React.Component<any, any> {
 
   render() {
     const admins = this.props.data.map((admin: string, index): JSX.Element => {
-      if (admin && (index < 12 || this.state.showall)) {
+      if (admin && (index < 18 || this.state.showall)) {
         return (
-          <div>
+          <div className="admin-raw">
             <Checkbox checked={this.isChecked(admin)} label={admin.substring(0, 30)} onChange={(e) => this.handleChange(admin, e)} />
           </div>
         );
       }
-      else if (admin && index == 12) {
+      else if (admin && index == 18) {
         return (
           <div> <p className="showmoreadmins" onClick={(e) => this.showMore()}>show more</p></div>
         )

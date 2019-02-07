@@ -75,8 +75,8 @@ export class FAQelement extends React.Component<IFAQelementProps,any> {
           height={ this.state.height }
           easing= { 'ease-out' }
         >
-          <div className={"Answer "  + (this.state.showDetails ? 'Expanded' : 'NotExpanded')}>   
-            <span> {this.props.data.Answer}   </span>
+          <div className={"Answer "  + (this.state.showDetails ? 'Expanded' : 'NotExpanded')}>  
+            <div dangerouslySetInnerHTML={{__html: this.props.data.Answer}}></div>
             <div className="AnswerVotes"> 
                   {Vote}            
             </div>

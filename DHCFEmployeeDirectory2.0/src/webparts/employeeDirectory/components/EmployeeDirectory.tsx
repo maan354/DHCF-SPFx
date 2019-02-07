@@ -332,8 +332,8 @@ export default class EmployeeDirectory extends React.Component<IEmployeeDirector
     this.props.graphClient
       .api("users")
       .version("beta")
-      .select("displayName,officeLocation,companyName,userPrincipalName,givenname,surname,department,jobtitle")
-      .filter("department eq 'IT'")
+      //.select("displayName,officeLocation,companyName,userPrincipalName,givenname,surname,department,jobtitle")
+      //.filter("department eq 'IT'")
       //.api("users/DHCFCapital9thOCFO938@dc.gov/calendarview?startdatetime=2019-1-28T04:00:00.000Z&enddatetime=2019-1-29T03:59:59.000Z")
       //.version("beta")
       .get()										 
